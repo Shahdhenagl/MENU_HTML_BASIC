@@ -175,7 +175,7 @@
    صيغة prices:  "M 85 | L 95"  أو  "125g 130 | 250g 260"  أو  "60"
    ============================================================ */
 const CONFIG = {
-  SHEET_CSV_URL: 'https://docs.google.com/spreadsheets/d/1UOmsl-mXTI5Nww4MMfHaHAZy2896VV01vyBo47TDF7E/export?format=csv',
+  SHEET_CSV_URL: 'https://docs.google.com/spreadsheets/d/1pqQl-w-6Xoivuyk6oMgkdtn7H3QNOQK0rf8qverxBE4/export?format=csv',
   SHEET_ID:      '',
   SHEET_NAME:    'Menu',
 };
@@ -445,6 +445,7 @@ async function loadData(){
    العرض
    ============================================================ */
 function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function slugify(s){ return String(s||'').trim().toLowerCase().replace(/[^\w؀-ۿ]+/g,'-').replace(/^-+|-+$/g,'')||'x'; }
 function parsePrices(str){
   if(str==null) return [];
   return String(str).split('|').map(s=>s.trim()).filter(Boolean).map(seg=>{
@@ -463,16 +464,23 @@ function initMenu(data){
   const nav=document.getElementById('nav');
   const menu=document.getElementById('menu'); menu.innerHTML='';
   const navLinks={}; const sections=[];
+  const used=new Set(); const secSlug={}; const slugSec={};
+  SECTIONS.forEach(s=>{ let sl=slugify(s.en||s.ar); while(used.has(sl)) sl+='-x'; used.add(sl); secSlug[s.id]=sl; slugSec[sl]=s.id; });
+
+  function goTo(slug){ const el=document.getElementById(slug); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }
+  function setHash(slug){ if(('#'+slug)!==location.hash){ try{ history.replaceState(null,'','#'+slug); }catch(e){} } }
 
   function renderCategory(cat){
     const items=PRODUCTS.filter(p=>p.c===cat.id);
     if(!items.length) return;
 
-    const a=document.createElement('a');
-    a.href='#cat-'+cat.id; a.textContent=cat.en||cat.ar; a.dataset.cat=cat.id;
-    navLinks[cat.id]=a; nav.appendChild(a);
+    let slug=(secSlug[cat.s]||'x')+'-'+slugify(cat.en||cat.ar); while(used.has(slug)) slug+='-x'; used.add(slug);
 
-    const sec=document.createElement('section'); sec.className='cat'; sec.id='cat-'+cat.id;
+    const a=document.createElement('a');
+    a.href='#'+slug; a.textContent=cat.en||cat.ar; a.dataset.slug=slug;
+    navLinks[slug]=a; nav.appendChild(a);
+
+    const sec=document.createElement('section'); sec.className='cat'; sec.id=slug;
 
     // parse prices; decide header (dominant labeled size-sequence)
     const parsed=items.map(p=>({p, pr:parsePrices(p.pr)}));
@@ -537,7 +545,7 @@ function initMenu(data){
 
   SECTIONS.forEach(section=>{
     const secCats=CATS.filter(c=>c.s===section.id);
-    const banner=document.createElement('div'); banner.className='band'; banner.id='sec-'+section.id;
+    const banner=document.createElement('div'); banner.className='band'; banner.id=secSlug[section.id];
     banner.innerHTML='<h2>'+esc(section.en||section.ar)+'</h2><div class="ar">'+esc(section.ar)+'</div>';
     menu.appendChild(banner);
     const hasItems=secCats.some(c=>PRODUCTS.some(p=>p.c===c.id));
@@ -546,23 +554,28 @@ function initMenu(data){
   });
 
   let activeId=null;
-  function setActive(id){ if(id===activeId) return; activeId=id; for(const k in navLinks) navLinks[k].classList.toggle('active',k===id); const a=navLinks[id]; if(a) a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'}); }
-  const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setActive(e.target.id.replace('cat-',''));});},{rootMargin:'-42% 0px -52% 0px',threshold:0});
+  function setActive(slug){ if(slug===activeId) return; activeId=slug; for(const k in navLinks) navLinks[k].classList.toggle('active',k===slug); const a=navLinks[slug]; if(a) a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'}); setHash(slug); }
+  const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setActive(e.target.id);});},{rootMargin:'-42% 0px -52% 0px',threshold:0});
   sections.forEach(s=>spy.observe(s));
-  if(sections[0]) setActive(sections[0].id.replace('cat-',''));
-  nav.addEventListener('click',e=>{const a=e.target.closest('a'); if(a&&a.dataset.cat) setActive(a.dataset.cat);});
+  nav.addEventListener('click',e=>{const a=e.target.closest('a'); if(a&&a.dataset.slug){ e.preventDefault(); setActive(a.dataset.slug); goTo(a.dataset.slug); }});
 
   const tabsEl=document.getElementById('tabs'); tabsEl.innerHTML=''; const tabBtns={};
   SECTIONS.forEach(section=>{
     if(!CATS.some(c=>c.s===section.id && PRODUCTS.some(p=>p.c===c.id))) return;
     const b=document.createElement('button'); b.textContent=section.en||section.ar; b.dataset.sec=section.id;
-    b.addEventListener('click',()=>{const banner=document.getElementById('sec-'+section.id); if(banner) banner.scrollIntoView({behavior:'smooth',block:'start'}); setTab(section.id);});
+    b.addEventListener('click',()=>{ goTo(secSlug[section.id]); setTab(section.id); });
     tabBtns[section.id]=b; tabsEl.appendChild(b);
   });
   function setTab(id){ for(const k in tabBtns) tabBtns[k].classList.toggle('active',k===id); }
   const firstTab=Object.keys(tabBtns)[0]; if(firstTab) setTab(firstTab);
-  const secSpy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setTab(e.target.id.replace('sec-',''));});},{rootMargin:'0px 0px -76% 0px',threshold:0});
+  const secSpy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){ const sid=slugSec[e.target.id]; if(sid) setTab(sid); }});},{rootMargin:'0px 0px -76% 0px',threshold:0});
   document.querySelectorAll('.band').forEach(el=>secSpy.observe(el));
+
+  // deep-link: honor initial hash, else highlight first category
+  const initial=(location.hash||'').replace(/^#/,'');
+  if(initial && initial!=='admin' && document.getElementById(initial)){
+    setTimeout(()=>{ const el=document.getElementById(initial); if(el) el.scrollIntoView({block:'start'}); }, 60);
+  } else if(sections[0]){ setActive(sections[0].id); }
 
   if(location.hash==='#admin') addExportLink(data);
 }
