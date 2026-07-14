@@ -3,239 +3,148 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>مريديان — المنيو</title>
+<title>المعتمد — ALMOATAMD</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Poppins:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --gold:#d4af37;
-    --gold-light:#f3e5ab;
-    --gold-dark:#aa8410;
-    --bg:#070707;
-    --card:#111114;
-    --card2:#16161a;
-    --line:#26262c;
-    --muted:#9a9aa2;
-    --text:#f2f2f0;
+    --maroon:#6d1224;
+    --maroon2:#8a1c2e;
+    --teal:#15535d;
+    --teal2:#0f3f47;
+    --warm:#e2a17c;
+    --cream:#fbf6f0;
+    --ink:#33292a;
+    --muted:#9c8478;
+    --line:#ecdbcb;
+    --card:#fffdfb;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:'Cairo',system-ui,'Segoe UI',Tahoma,sans-serif;
-    background:var(--bg);
-    color:var(--text);
+    font-family:'Quicksand','Cairo',system-ui,'Segoe UI',Tahoma,sans-serif;
+    color:var(--ink);
     -webkit-font-smoothing:antialiased;
-    background-image:radial-gradient(1200px 600px at 50% -200px, rgba(212,175,55,.10), transparent 70%);
+    background:linear-gradient(180deg,#fdf9f4 0%, #f8ecdf 48%, #f0d8c5 100%) fixed;
     min-height:100vh;
   }
-  .wrap{max-width:1200px;margin:0 auto;padding:0 18px 60px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 18px 60px}
 
-  /* Header */
-  header{text-align:center;padding:56px 16px 30px}
-  .logo-ring{
-    width:120px;height:120px;margin:0 auto 20px;border-radius:50%;
-    overflow:hidden;position:relative;
-    box-shadow:0 0 0 1px rgba(212,175,55,.45), 0 0 34px rgba(212,175,55,.4);
-    animation:logoGlow 3s ease-in-out infinite;
-  }
-  .logo-ring img{width:100%;height:100%;object-fit:cover;display:block}
-  .logo-ring::after{
-    content:"";position:absolute;top:0;left:-160%;width:65%;height:100%;
-    background:linear-gradient(115deg,transparent,rgba(255,255,255,.42),transparent);
-    transform:skewX(-20deg);pointer-events:none;
-    animation:logoShine 5s ease-in-out infinite;
-  }
-  @keyframes logoGlow{
-    0%,100%{box-shadow:0 0 0 1px rgba(212,175,55,.35), 0 0 22px rgba(212,175,55,.25)}
-    50%{box-shadow:0 0 0 1px rgba(212,175,55,.65), 0 0 44px rgba(212,175,55,.58)}
-  }
-  @keyframes logoShine{
-    0%{left:-160%} 24%{left:170%} 100%{left:170%}
-  }
-  h1{
-    font-size:clamp(2rem,6vw,3.2rem);font-weight:900;letter-spacing:1px;
-    background:linear-gradient(90deg,var(--gold-light),var(--gold),var(--gold-dark));
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  }
-  .subtitle{color:var(--muted);margin-top:8px;font-size:1rem;letter-spacing:2px}
-  .divider{
-    width:120px;height:2px;margin:22px auto 0;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  }
+  /* ===== Header / brand ===== */
+  header{text-align:center;padding:44px 16px 26px}
+  .logo{width:96px;height:96px;margin:0 auto 12px;color:var(--maroon);
+    filter:drop-shadow(0 6px 14px rgba(109,18,36,.22))}
+  .logo svg{width:100%;height:100%;display:block}
+  .brand-ar{font-family:'Cairo',sans-serif;font-weight:800;font-size:1.5rem;color:var(--maroon);letter-spacing:2px;margin-bottom:-2px}
+  .brand-en{font-family:'Poppins',sans-serif;font-weight:800;font-size:2.5rem;letter-spacing:6px;
+    color:var(--maroon);line-height:1.05}
+  .tagline{font-family:'Poppins',serif;font-style:italic;color:var(--warm);font-weight:600;
+    letter-spacing:1px;font-size:.9rem;margin-top:6px}
+  .handle{display:inline-block;margin-top:12px;color:var(--teal);font-weight:700;font-size:.82rem;
+    background:rgba(21,83,93,.08);padding:5px 14px;border-radius:999px;letter-spacing:.5px}
+  @media(min-width:560px){ .brand-en{font-size:3rem} .logo{width:110px;height:110px} }
 
-  /* Category nav */
-  .topbar{
-    position:sticky;top:0;z-index:25;
-    background:rgba(7,7,7,.95);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);margin-bottom:32px;
-  }
+  /* ===== Sticky tabs + nav ===== */
+  .topbar{position:sticky;top:0;z-index:30;
+    background:rgba(253,249,244,.94);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);margin-bottom:26px}
   .tabs{display:flex;justify-content:center;gap:10px;padding:12px 14px 8px}
-  .tabs button{
-    flex:0 0 auto;min-width:128px;font-family:inherit;font-size:1rem;font-weight:800;
-    cursor:pointer;color:var(--muted);background:var(--card);
-    border:1.5px solid var(--line);border-radius:999px;padding:10px 22px;transition:.2s;
-  }
-  .tabs button:hover{border-color:var(--gold);color:var(--text)}
-  .tabs button.active{
-    color:#1a1400;background:linear-gradient(180deg,var(--gold-light),var(--gold));
-    border-color:var(--gold);box-shadow:0 4px 16px rgba(212,175,55,.4);
-  }
-  nav{
-    display:flex;gap:9px;overflow-x:auto;overflow-y:hidden;
-    padding:4px 14px 12px;
-    scrollbar-width:thin;scrollbar-color:var(--gold-dark) transparent;
-    -webkit-overflow-scrolling:touch;
-  }
-  nav::-webkit-scrollbar{height:6px}
-  nav::-webkit-scrollbar-track{background:transparent}
-  nav::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:10px}
-  nav a{
-    flex:0 0 auto;color:var(--muted);text-decoration:none;font-weight:700;font-size:.92rem;
-    padding:8px 17px;border:1px solid var(--line);border-radius:999px;white-space:nowrap;
-    background:var(--card);transition:.2s;
-  }
-  nav a:hover{color:var(--text);border-color:var(--gold)}
-  nav a.active{
-    color:#1a1400;
-    background:linear-gradient(180deg,var(--gold-light),var(--gold));
-    border-color:var(--gold);font-weight:800;
-    box-shadow:0 4px 16px rgba(212,175,55,.4);
-  }
+  .tabs button{flex:0 0 auto;min-width:130px;font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:700;
+    letter-spacing:2px;cursor:pointer;color:var(--maroon);background:transparent;
+    border:1.6px solid rgba(109,18,36,.32);border-radius:999px;padding:9px 24px;transition:.2s}
+  .tabs button:hover{border-color:var(--maroon)}
+  .tabs button.active{color:#fff;background:linear-gradient(180deg,var(--maroon2),var(--maroon));
+    border-color:var(--maroon);box-shadow:0 6px 16px rgba(109,18,36,.32)}
+  nav{display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;padding:4px 14px 12px;
+    scrollbar-width:thin;scrollbar-color:var(--warm) transparent;-webkit-overflow-scrolling:touch}
+  nav::-webkit-scrollbar{height:5px}
+  nav::-webkit-scrollbar-thumb{background:var(--warm);border-radius:10px}
+  nav a{flex:0 0 auto;color:var(--teal);text-decoration:none;font-weight:700;font-size:.86rem;
+    padding:7px 15px;border:1px solid var(--line);border-radius:999px;white-space:nowrap;
+    background:var(--card);transition:.2s}
+  nav a:hover{border-color:var(--warm)}
+  nav a.active{color:#fff;background:var(--teal);border-color:var(--teal)}
 
-  /* Main section banner (المطبخ / البار) */
-  .section-head{
-    display:flex;align-items:center;gap:16px;
-    max-width:1200px;margin:8px auto 28px;padding:0 18px;scroll-margin-top:112px;
-  }
-  .section-head .rule{flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--gold-dark),transparent)}
-  .section-head h2{
-    text-align:center;font-size:2rem;font-weight:900;letter-spacing:3px;white-space:nowrap;
-    background:linear-gradient(90deg,var(--gold-light),var(--gold),var(--gold-dark));
-    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
-  }
-  .section-head h2 .en{
-    display:block;font-size:.72rem;letter-spacing:4px;color:var(--muted);
-    -webkit-text-fill-color:var(--muted);font-weight:600;margin-top:4px;text-align:center;
-  }
-  .soon{
-    max-width:1200px;margin:0 18px 46px;padding:34px 18px;text-align:center;
-    color:var(--muted);border:1px dashed var(--line);border-radius:16px;font-weight:600;
-  }
-  @media(min-width:1236px){ .soon{margin-inline:auto} }
+  /* ===== Section band ===== */
+  .band{max-width:1120px;margin:6px auto 26px;padding:24px 20px;border-radius:20px;text-align:center;
+    color:#fff;scroll-margin-top:120px;
+    background:linear-gradient(115deg,var(--maroon) 0%, var(--maroon2) 42%, var(--warm) 115%);
+    box-shadow:0 12px 30px rgba(109,18,36,.22)}
+  .band h2{font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:5px;font-size:1.9rem}
+  .band .ar{font-family:'Cairo',sans-serif;font-weight:700;opacity:.92;font-size:1rem;margin-top:2px}
+  @media(min-width:1156px){ .band{margin-inline:auto} }
 
-  /* Category section */
-  .cat{margin-bottom:46px;scroll-margin-top:104px}
-  .cat-head{display:flex;align-items:center;gap:14px;margin-bottom:22px}
-  .cat-head h2{
-    font-size:1.6rem;font-weight:800;color:var(--gold);white-space:nowrap;
-  }
-  .cat-head .line{flex:1;height:1px;background:linear-gradient(90deg,var(--gold-dark),transparent)}
-  .cat-head .count{color:var(--muted);font-size:.85rem;font-weight:600}
+  /* ===== Category ===== */
+  .cat{margin-bottom:34px;scroll-margin-top:112px}
+  .cat-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
+  .cat-head .ar{font-family:'Cairo',sans-serif;font-weight:800;font-size:1.5rem;color:var(--maroon);white-space:nowrap}
+  .cat-head .en{font-family:'Poppins',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:2px;
+    color:var(--warm);text-transform:uppercase;white-space:nowrap}
+  .cat-head .line{flex:1;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,rgba(109,18,36,.35),transparent)}
 
-  /* Grid */
-  .grid{
-    display:grid;gap:12px;
-    grid-template-columns:repeat(2,1fr);
-  }
-  @media(min-width:560px){ .grid{ grid-template-columns:repeat(3,1fr) } }
-  @media(min-width:820px){ .grid{ grid-template-columns:repeat(4,1fr);gap:16px } }
-  @media(min-width:1120px){ .grid{ grid-template-columns:repeat(5,1fr) } }
-  .card{
-    background:linear-gradient(180deg,var(--card2),var(--card));
-    border:1px solid var(--line);border-radius:16px;overflow:hidden;
-    transition:transform .18s, border-color .18s, box-shadow .18s;
-    display:flex;flex-direction:column;
-  }
-  .card:hover{transform:translateY(-4px);border-color:rgba(212,175,55,.55);
-    box-shadow:0 14px 30px rgba(0,0,0,.5)}
-  .thumb{
-    position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;
-    background:
-      linear-gradient(135deg,#1c1c22,#0d0d10);
-    display:flex;align-items:center;justify-content:center;
-  }
-  .thumb::after{content:"🍽";font-size:38px;opacity:.25;position:absolute}
-  .thumb img{
-    position:relative;z-index:1;width:100%;height:100%;object-fit:cover;
-    display:block;background:#0d0d10;
-  }
-  .thumb img.hide{display:none}
-  .body{padding:14px 15px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
-  .name-ar{font-size:1.05rem;font-weight:700;line-height:1.35}
-  .name-en{font-size:.82rem;color:var(--muted);font-weight:400;letter-spacing:.3px}
-  .price{
-    margin-top:auto;padding-top:10px;display:flex;align-items:baseline;gap:5px;
-  }
-  .price .num{color:var(--gold);font-weight:800;font-size:1.3rem}
-  .price .cur{color:var(--muted);font-size:.8rem;font-weight:600}
+  .items{display:grid;grid-template-columns:1fr;gap:0 42px}
+  @media(min-width:760px){ .items{grid-template-columns:1fr 1fr} }
 
-  /* Bar list (name + price, no images) */
-  .menu-list{display:grid;grid-template-columns:1fr;gap:0 46px}
-  @media(min-width:720px){ .menu-list{grid-template-columns:1fr 1fr} }
-  .menu-row{
-    display:flex;align-items:center;gap:12px;
-    padding:12px 6px;border-bottom:1px solid rgba(255,255,255,.06);
-  }
-  .menu-row .info{flex:1;min-width:0}
-  .menu-row .r-ar{font-size:1.05rem;font-weight:700;line-height:1.3}
-  .menu-row .r-en{font-size:.72rem;color:var(--muted);margin-top:2px;letter-spacing:.3px}
-  .menu-row .r-price{color:var(--gold);font-weight:800;font-size:1.2rem;white-space:nowrap}
-  .menu-row .r-price small{color:var(--muted);font-size:.68rem;font-weight:600;margin-inline-start:4px}
+  .item{display:flex;align-items:baseline;gap:12px;padding:10px 4px;
+    border-bottom:1px dashed var(--line)}
+  .item .nm{flex:1;min-width:0}
+  .item .na{font-family:'Quicksand','Cairo',sans-serif;font-weight:700;font-size:1.02rem;color:var(--teal);line-height:1.3}
+  .item .ne{font-size:.72rem;color:var(--muted);margin-top:1px;letter-spacing:.2px}
+  .item .prices{display:flex;gap:14px;white-space:nowrap;align-items:baseline}
+  .pp{font-family:'Poppins',sans-serif;color:var(--teal);font-weight:700;font-size:1.02rem}
+  .pp b{color:var(--maroon);font-weight:800;font-size:.58rem;letter-spacing:.5px;margin-inline-end:3px;
+    vertical-align:middle;opacity:.85}
 
-  /* Loading / status */
+  .soon{max-width:1120px;margin:0 18px 40px;padding:30px 18px;text-align:center;color:var(--muted);
+    border:1px dashed var(--line);border-radius:16px;font-weight:600}
+
   .status{text-align:center;color:var(--muted);padding:60px 16px;font-weight:600}
-  .status .spin{
-    width:34px;height:34px;margin:0 auto 16px;border-radius:50%;
-    border:3px solid var(--line);border-top-color:var(--gold);
-    animation:spin .8s linear infinite;
-  }
+  .status .spin{width:32px;height:32px;margin:0 auto 14px;border-radius:50%;
+    border:3px solid var(--line);border-top-color:var(--maroon);animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
 
-  footer{text-align:center;color:var(--muted);font-size:.85rem;padding:40px 16px 10px;border-top:1px solid var(--line);margin-top:20px}
-  footer .g{color:var(--gold)}
-  footer .exp{display:inline-block;margin-top:12px;color:var(--muted);font-size:.78rem;
+  footer{text-align:center;color:var(--muted);font-size:.84rem;padding:36px 16px 12px;
+    border-top:1px solid var(--line);margin-top:24px}
+  footer b{color:var(--maroon)}
+  footer .exp{display:inline-block;margin-top:12px;color:var(--muted);font-size:.76rem;
     text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit}
-  footer .exp:hover{color:var(--gold)}
+  footer .exp:hover{color:var(--maroon)}
 
-  /* Mobile polish */
   @media(max-width:559px){
-    .wrap{padding:0 12px 40px}
-    header{padding:34px 14px 20px}
-    .logo-ring{width:96px;height:96px;margin-bottom:14px}
-    h1{font-size:2rem}
-    .subtitle{font-size:.85rem;margin-top:6px}
-    .divider{margin-top:16px}
-    nav{padding:11px 12px}
-    nav a{font-size:.84rem;padding:7px 14px}
-    .cat{margin-bottom:34px}
-    .cat-head{gap:10px;margin-bottom:16px}
-    .cat-head h2{font-size:1.2rem}
-    .section-head{gap:10px;margin-bottom:20px}
-    .section-head h2{font-size:1.5rem;letter-spacing:2px}
-    .tabs{padding:10px 12px 6px;gap:8px}
-    .tabs button{min-width:0;flex:1 1 0;font-size:.92rem;padding:9px 10px}
-    .menu-row{padding:10px 4px}
-    .menu-row .r-ar{font-size:.94rem}
-    .menu-row .r-price{font-size:1.05rem}
-    .cat-head .count{font-size:.72rem}
-    .card{border-radius:13px}
-    .body{padding:10px 11px 12px;gap:3px}
-    .name-ar{font-size:.9rem;line-height:1.3}
-    .name-en{font-size:.7rem}
-    .price{padding-top:7px}
-    .price .num{font-size:1.05rem}
-    .thumb::after{font-size:30px}
+    .wrap{padding:0 13px 40px}
+    header{padding:30px 14px 18px}
+    .brand-en{font-size:2.1rem;letter-spacing:4px}
+    .band h2{font-size:1.5rem;letter-spacing:3px}
+    .cat-head .ar{font-size:1.2rem}
+    .tabs button{min-width:0;flex:1 1 0;padding:9px 12px;letter-spacing:1px}
+    .item{padding:9px 3px}
+    .item .na{font-size:.94rem}
+    .pp{font-size:.94rem}
+    .item .prices{gap:10px}
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-ring"><img src="/logo.png" alt="مريديان Meridien" /></div>
-  <h1>مريديان</h1>
-  <div class="subtitle">MERIDIEN · منذ 2005</div>
-  <div class="divider"></div>
+  <div class="logo" aria-hidden="true">
+    <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 110 V50 L60 22 L98 50 V110"/>
+      <rect x="51" y="10" width="18" height="18" rx="4"/>
+      <g transform="rotate(-18 60 74)">
+        <ellipse cx="49" cy="74" rx="11" ry="17"/>
+        <path d="M49 59 Q44.5 74 49 89"/>
+        <ellipse cx="71" cy="74" rx="11" ry="17"/>
+        <path d="M71 59 Q66.5 74 71 89"/>
+      </g>
+    </svg>
+  </div>
+  <div class="brand-ar">المعتمد</div>
+  <div class="brand-en">ALMOATAMD</div>
+  <div class="tagline">Every Bean With Love</div>
+  <a class="handle" href="https://instagram.com/almoatamd" target="_blank" rel="noopener">@almoatamd</a>
 </header>
 
 <div class="topbar">
@@ -248,309 +157,237 @@
 </div>
 
 <footer>
-  قائمة الطعام — <span class="g">مريديان</span> · جميع الأسعار بالجنيه المصري
+  <b>ALMOATAMD · المعتمد</b> — Every Bean With Love<br>
+  جميع الأسعار بالجنيه المصري
 </footer>
 
 <script>
 /* ============================================================
-   ⚙️  الإعدادات — اربط المنيو بجوجل شيت من هنا
+   ⚙️  الإعدادات — الربط بجوجل شيت
    ------------------------------------------------------------
-   طريقة الربط (مرة واحدة فقط):
-   1) افتح Google Sheet بتاعك.
-   2) File ▸ Share ▸ Publish to web ▸ اختر التبويب ▸ Comma-separated values (.csv)
-      ثم Publish، وانسخ الرابط الناتج.
-   3) الصق الرابط داخل SHEET_CSV_URL هنا تحت بين علامتي التنصيص.
-   بعد كده أي تعديل في الشيت هيظهر في المنيو أوتوماتيك خلال دقائق.
-
-   (طريقة بديلة: سيب SHEET_CSV_URL فاضي، وحط معرّف الشيت في
-    SHEET_ID واسم التبويب في SHEET_NAME — بشرط يكون الشيت
-    مشارَك "Anyone with the link ▸ Viewer".)
+   المنيو بيقرأ من الشيت المنشور. عدّل في الشيت → يتحدّث المنيو.
+   لو حابب تغيّر الشيت، بدّل SHEET_CSV_URL تحت.
+   (الأعمدة المطلوبة: section, category_ar, category_en,
+    name_ar, name_en, prices, available)
+   صيغة عمود prices:  "M 85 | L 95"  أو  "125g 130 | 250g 260"  أو  "60"
    ============================================================ */
 const CONFIG = {
   SHEET_CSV_URL: 'https://docs.google.com/spreadsheets/d/1UOmsl-mXTI5Nww4MMfHaHAZy2896VV01vyBo47TDF7E/export?format=csv',
-  SHEET_ID:      '',      // ← أو معرّف الشيت (اللي بين /d/ و /edit في الرابط)
-  SHEET_NAME:    'Menu',  // ← اسم التبويب اللي فيه المنتجات
+  SHEET_ID:      '',
+  SHEET_NAME:    'Menu',
 };
 
 /* ============================================================
-   البيانات الافتراضية (نسخة احتياطية) — تُعرض لو الشيت مش متظبط
-   أو تعذّر تحميله. أول ما تربط الشيت، بياناته بتاخد الأولوية.
+   البيانات الافتراضية (نسخة احتياطية من مطبوعة المعتمد)
    ============================================================ */
-/* الأقسام الرئيسية */
 const DEFAULT_SECTIONS = [
-  { id:'kitchen', ar:'المطبخ', en:'Kitchen' },
-  { id:'bar',     ar:'البار',  en:'Bar' },
+  { id:'beans',  ar:'حبوب البُن', en:'BEANS' },
+  { id:'drinks', ar:'المشروبات',  en:'DRINKS' },
 ];
 
-/* التصنيفات — s = القسم الرئيسي */
 const DEFAULT_CATS = [
-  { id:'box',      s:'kitchen', ar:'الفطار',          en:'Breakfast' },
-  { id:'salad',    s:'kitchen', ar:'السلطات',         en:'Salads' },
-  { id:'soup',     s:'kitchen', ar:'الشوربة',         en:'Soups' },
-  { id:'tagine',   s:'kitchen', ar:'الطواجن',         en:'Casseroles' },
-  { id:'meals',    s:'kitchen', ar:'الوجبات',         en:'Main Meals' },
-  { id:'grills',   s:'kitchen', ar:'المشويات',        en:'Grills' },
-  { id:'pasta',    s:'kitchen', ar:'الباستا',         en:'Pasta' },
-  { id:'sides',    s:'kitchen', ar:'المقبلات',        en:'Appetizers' },
-  { id:'burgers',  s:'kitchen', ar:'البرجر',          en:'Burgers' },
-  { id:'pizza',    s:'kitchen', ar:'البيتزا',         en:'Pizza' },
-  { id:'sandwich', s:'kitchen', ar:'الساندويتشات',    en:'Sandwiches' },
-  { id:'kids',     s:'kitchen', ar:'وجبات أطفال',     en:'Kids Meals' },
-  // ---- البار ----
-  { id:'b_desserts', s:'bar', ar:'حلويات',           en:'Desserts' },
-  { id:'b_tea',      s:'bar', ar:'شاي',              en:'Tea' },
-  { id:'b_caffeine', s:'bar', ar:'كافيين',           en:'Caffeine' },
-  { id:'b_herbals',  s:'bar', ar:'أعشاب',            en:'Herbals' },
-  { id:'b_coffee',   s:'bar', ar:'قهوة',             en:'Coffee' },
-  { id:'b_sahlab',   s:'bar', ar:'سحلب',             en:'Sahlab' },
-  { id:'b_hotchoc',  s:'bar', ar:'هوت شوكليت',       en:'Hot Chocolate' },
-  { id:'b_ice',      s:'bar', ar:'آيس',              en:'Ice' },
-  { id:'b_shake',    s:'bar', ar:'ميلك شيك',         en:'Milk Shake' },
-  { id:'b_frappe',   s:'bar', ar:'فرابيه',           en:'Frappe' },
-  { id:'b_smoothie', s:'bar', ar:'سموذي',            en:'Smoothie' },
-  { id:'b_juice',    s:'bar', ar:'عصير طازة',        en:'Fresh Juice' },
-  { id:'b_cocktail', s:'bar', ar:'كوكتيل',           en:'Cocktail' },
-  { id:'b_soft',     s:'bar', ar:'مشروبات غازية',    en:'Soft Drinks' },
-  { id:'b_souda',    s:'bar', ar:'صودا',             en:'Souda' },
+  // ---- BEANS ----
+  { id:'b_turkish',   s:'beans',  ar:'قهوة تركية',                 en:'Turkish Coffee' },
+  { id:'b_specialty', s:'beans',  ar:'القهوة المختصة والإسبريسو',  en:'Specialty & Espresso' },
+  { id:'b_french',    s:'beans',  ar:'قهوة فرنسية',                en:'French Coffee' },
+  { id:'b_arabic',    s:'beans',  ar:'قهوة عربية',                 en:'Arabic Coffee' },
+  // ---- DRINKS ----
+  { id:'d_hot',       s:'drinks', ar:'المشروبات الساخنة', en:'Hot Beverages' },
+  { id:'d_color',     s:'drinks', ar:'اللاتيه الملوّن',   en:'Color Latte' },
+  { id:'d_specialty', s:'drinks', ar:'القهوة المختصة',    en:'Specialty Coffee' },
+  { id:'d_iced',      s:'drinks', ar:'القهوة المثلجة',    en:'Iced Coffee' },
+  { id:'d_matcha',    s:'drinks', ar:'الماتشا المثلجة',   en:'Iced Matcha' },
+  { id:'d_frappe',    s:'drinks', ar:'الفرابيه',          en:'Coffee Frappe' },
+  { id:'d_mojito',    s:'drinks', ar:'الموهيتو',          en:'Mojito' },
+  { id:'d_smoothie',  s:'drinks', ar:'السموذي',           en:'Smoothie' },
+  { id:'d_lunar',     s:'drinks', ar:'لونار ريفريشر',     en:'Lunar' },
+  { id:'d_shake',     s:'drinks', ar:'الميلك شيك',        en:'Milk Shakes' },
+  { id:'d_hotchoc',   s:'drinks', ar:'الهوت شوكليت',      en:'Hot Chocolate' },
+  { id:'d_turkish',   s:'drinks', ar:'القهوة التركي',     en:'Turkish Coffee' },
+  { id:'d_french',    s:'drinks', ar:'القهوة الفرنساوي',  en:'French Coffee' },
+  { id:'d_tea',       s:'drinks', ar:'الشاي',             en:'Tea' },
+  { id:'d_redbull',   s:'drinks', ar:'ريد بُل',           en:'RedBull' },
+  { id:'d_extra',     s:'drinks', ar:'الإضافات',          en:'Extra' },
 ];
 
 const DEFAULT_PRODUCTS = [
-  // Burgers
-  {c:'burgers', ar:'تشيكن برجر', en:'Chicken Burger', p:130, img:'/menu-images/50895.jpg'},
-  {c:'burgers', ar:'كرانشي رانش برجر', en:'Crunchy Ranch Burger', p:140, img:'/menu-images/3070.jpg'},
-  {c:'burgers', ar:'كلاسيك برجر', en:'Classic Burger', p:160, img:'/menu-images/19388.jpg'},
-  {c:'burgers', ar:'سماش برجر', en:'Smash Burger', p:170, img:'/menu-images/2149637305.jpg'},
-  {c:'burgers', ar:'مشروم برجر', en:'Mushroom Burger', p:170, img:'/menu-images/5719.jpg'},
-  {c:'burgers', ar:'فولكانو برجر', en:'Volcano Burger', p:175, img:'/menu-images/9487.jpg'},
-  // Pizza
-  {c:'pizza', ar:'بيتزا مارجريتا - ميديم', en:'Margherita Pizza - Medium', p:110, img:'/menu-images/170.jpg'},
-  {c:'pizza', ar:'بيتزا مارجريتا - لارج', en:'Margherita Pizza - Large', p:120, img:'/menu-images/14476.jpg'},
-  {c:'pizza', ar:'بيتزا تشيز لافرز - ميديم', en:'Cheese Lovers Pizza - Medium', p:160, img:'/menu-images/652.jpg'},
-  {c:'pizza', ar:'بيتزا تشيز لافرز - لارج', en:'Cheese Lovers Pizza - Large', p:175, img:'/menu-images/11276.jpg'},
-  {c:'pizza', ar:'بيتزا تشيكن سوبريم - ميديم', en:'Chicken Supreme Pizza - Medium', p:170, img:'/menu-images/101409.jpg'},
-  {c:'pizza', ar:'بيتزا تشيكن سوبريم - لارج', en:'Chicken Supreme Pizza - Large', p:195, img:'/menu-images/9148.jpg'},
-  {c:'pizza', ar:'بيتزا بيبروني - ميديم', en:'Pepperoni Pizza - Medium', p:195, img:'/menu-images/4129.jpg'},
-  {c:'pizza', ar:'بيتزا بيبروني - لارج', en:'Pepperoni Pizza - Large', p:205, img:'/menu-images/sausage-pizza-served-with-dried-herbs.jpg'},
-  {c:'pizza', ar:'بيتزا تشيكن بافلو - ميديم', en:'Buffalo Chicken Pizza - Medium', p:179, img:'/menu-images/1518.jpg'},
-  {c:'pizza', ar:'بيتزا تشيكن بافلو - لارج', en:'Buffalo Chicken Pizza - Large', p:200, img:'/menu-images/14196.jpg'},
-  {c:'pizza', ar:'بيتزا تشيكن باربيكيو - ميديم', en:'Chicken BBQ Pizza - Medium', p:185, img:'/menu-images/1518_1_.jpg'},
-  {c:'pizza', ar:'بيتزا تشيكن باربيكيو - لارج', en:'Chicken BBQ Pizza - Large', p:195, img:'/menu-images/3254.jpg'},
-  {c:'pizza', ar:'بيتزا كرانشي رانش - ميديم', en:'Crunchy Ranch Pizza - Medium', p:179, img:'/menu-images/2508.jpg'},
-  {c:'pizza', ar:'بيتزا كرانشي رانش - لارج', en:'Crunchy Ranch Pizza - Large', p:200, img:'/menu-images/2148643440.jpg'},
-  {c:'pizza', ar:'بيتزا فورسيزون - ميديم', en:'Four Seasons Pizza - Medium', p:174, img:'/menu-images/101784.jpg'},
-  {c:'pizza', ar:'بيتزا فورسيزون - لارج', en:'Four Seasons Pizza - Large', p:200, img:'/menu-images/1982.jpg'},
-  {c:'pizza', ar:'بيتزا سوبر سوبريم - ميديم', en:'Super Supreme Pizza - Medium', p:200, img:'/menu-images/642.jpg'},
-  {c:'pizza', ar:'بيتزا سوبر سوبريم - لارج', en:'Super Supreme Pizza - Large', p:240, img:'/menu-images/687.jpg'},
-  {c:'pizza', ar:'بيتزا سي فود - ميديم', en:'Seafood Pizza - Medium', p:260, img:'/menu-images/64790.jpg'},
-  {c:'pizza', ar:'بيتزا سي فود - لارج', en:'Seafood Pizza - Large', p:280, img:'/menu-images/443197.jpg'},
-  // Sandwiches
-  {c:'sandwich', ar:'ساندويتش شيش طاووق', en:'Shish Tawook Sandwich', p:130, img:'/menu-images/19757.jpg'},
-  {c:'sandwich', ar:'ساندويتش كفتة', en:'Kofta Sandwich', p:140, img:'/menu-images/2182.jpg'},
-  {c:'sandwich', ar:'ساندويتش صدر مشوية', en:'Grilled Chicken Breast Sandwich', p:145, img:'/menu-images/16770.jpg'},
-  {c:'sandwich', ar:'ساندويتش كوردن بلو', en:'Cordon Bleu Sandwich', p:150, img:'/menu-images/3338.jpg'},
-  {c:'sandwich', ar:'ساندويتش تشيكن تايجر', en:'Chicken Tiger Sandwich', p:160, img:'/menu-images/505.jpg'},
-  {c:'sandwich', ar:'ساندويتش سوبر كرانشي', en:'Super Crunchy Sandwich', p:160, img:'/menu-images/30.jpg'},
-  {c:'sandwich', ar:'ساندويتش تشيكن فاهيتا', en:'Chicken Fajita Sandwich', p:165, img:'/menu-images/5002.jpg'},
-  {c:'sandwich', ar:'ساندويتش بيف استيك تشيز', en:'Beef Steak Cheese Sandwich', p:200, img:'/menu-images/22044.jpg'},
-  // Grills
-  {c:'grills', ar:'مشويات كفتة دجاج', en:'Grilled Chicken Kofta', p:200, img:'/menu-images/19994.jpg'},
-  {c:'grills', ar:'مشويات شيش تندوري', en:'Tandoori Shish Grill', p:200, img:'/menu-images/82614.jpg'},
-  {c:'grills', ar:'مشويات نصف دجاج', en:'Grilled Half Chicken', p:250, img:'/menu-images/2774.jpg'},
-  {c:'grills', ar:'مشويات صدر دجاج', en:'Grilled Chicken Breast', p:260, img:'/menu-images/2148189870.jpg'},
-  {c:'grills', ar:'مشويات ميكس دجاج', en:'Mixed Chicken Grill', p:300, img:'/menu-images/20860.jpg'},
-  {c:'grills', ar:'مشويات ميكس جريل', en:'Mixed Grill', p:340, img:'/menu-images/3614.jpg'},
-  {c:'grills', ar:'ريش ضاني 1/3', en:'Lamb Chops 1/3 Kg', p:350, img:'/menu-images/11339.jpg'},
-  {c:'grills', ar:'كباب وكفتة 1/3', en:'Kebab & Kofta 1/3 Kg', p:360, img:'/menu-images/2149358049.jpg'},
-  {c:'grills', ar:'وجبة مشويات كفتة', en:'Grilled Kofta Meal', p:300, img:'/menu-images/6245.jpg'},
-  // Meals
-  {c:'meals', ar:'وجبة تشيكن جلايزد فرايز', en:'Chicken Glazed Fries Meal', p:210, img:'/menu-images/merlin_198330876_5fbaead6-4108-4ded-8921-7420146bf46d-superJumbo.jpg'},
-  {c:'meals', ar:'وجبة تشيكن فاهيتا', en:'Chicken Fajita Meal', p:220, img:'/menu-images/chicken-fajitas-small-7.jpg'},
-  {c:'meals', ar:'وجبة ليمون تشيكن', en:'Lemon Chicken Meal', p:220, img:'/menu-images/FAW-recipes-herb-and-lemon-roasted-chicken-hero-c4ba0aec56884683be482c47b1e1df11.jpg'},
-  {c:'meals', ar:'وجبة كوردن بلو', en:'Chicken Cordon Bleu Meal', p:250, img:'https://www.farmerjacks.com.au/wp-content/uploads/2023/08/Recipe-Images-17.png'},
-  {c:'meals', ar:'وجبة حمام كداب', en:'Hamam Kadab Meal', p:300, img:'/menu-images/6831.jpg'},
-  {c:'meals', ar:'وجبة استراجانوف بيف', en:'Beef Stroganoff Meal', p:350, img:'/menu-images/20111.jpg'},
-  {c:'meals', ar:'وجبة استيك (مشروم / هيربز / بيبر)', en:'Steak Meal', p:400, img:'/menu-images/7643.jpg'},
-  // Tagine
-  {c:'tagine', ar:'طاجن ملوخية سادة', en:'Plain Molokhia Casserole', p:85, img:'/menu-images/206654.jpg'},
-  {c:'tagine', ar:'أرز معمّر', en:'Baked Creamy Rice', p:120, img:'/menu-images/95128_1_.jpg'},
-  {c:'tagine', ar:'طاجن بامية باللحمة', en:'Okra & Meat Casserole', p:300, img:'/menu-images/8769.jpg'},
-  {c:'tagine', ar:'طاجن ورق عنب باللحمة', en:'Stuffed Vine Leaves with Meat', p:300, img:'/menu-images/17488.jpg'},
-  {c:'tagine', ar:'طاجن بطاطس باللحمة', en:'Potato & Meat Casserole', p:330, img:'/menu-images/2149370876.jpg'},
-  {c:'tagine', ar:'طاجن بيف جولاش', en:'Beef Goulash Casserole', p:350, img:'/menu-images/117360.jpg'},
-  // Pasta
-  {c:'pasta', ar:'باستا نجرسكو', en:'Negresco Pasta', p:160, img:'/menu-images/6903.jpg'},
-  {c:'pasta', ar:'باستا فولكانو ماك تشيز', en:'Volcano Mac & Cheese Pasta', p:160, img:'/menu-images/2149332826.jpg'},
-  {c:'pasta', ar:'باستا فيتوتشيني الفريدو', en:'Fettuccine Alfredo Pasta', p:180, img:'/menu-images/3106.jpg'},
-  {c:'pasta', ar:'لازانيا بيف', en:'Beef Lasagna', p:300, img:'/menu-images/22840.jpg'},
-  {c:'pasta', ar:'باستا سي فود فورنو', en:'Seafood Pasta Forno', p:320, img:'/menu-images/5869.jpg'},
-  {c:'pasta', ar:'لازانيا سي فود', en:'Seafood Lasagna', p:320, img:'/menu-images/1955.jpg'},
-  // Sides
-  {c:'sides', ar:'تشيز فرايز', en:'Cheese Fries', p:100, img:'/menu-images/1600x450px_French_Fries_Overload.png'},
-  {c:'sides', ar:'تشيكن كاساديا', en:'Chicken Quesadilla', p:140, img:'/menu-images/chicken-quesadillas-lead-668eeac0e860b.jpg'},
-  {c:'sides', ar:'تاكو دجاج', en:'Chicken Tacos', p:150, img:'/menu-images/chicken-tacos-11-760x901.jpg'},
-  {c:'sides', ar:'تاكو لحم', en:'Beef Tacos', p:150, img:'https://www.simplyrecipes.com/thmb/1zhqYK3rBLIS8V-Wz8Xz1v6Xxfk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Ground-Beef-Tacos-LEAD-3-8f7f7e3e5f6d4a5b9e0e6b8c9a0e5f0e.jpg'},
-  {c:'sides', ar:'تكساس فرايز', en:'Texas Fries', p:150, img:'/menu-images/34660.jpg'},
-  {c:'sides', ar:'تشيكن فرايز سبايسي', en:'Spicy Chicken Fries', p:160, img:'/menu-images/114331.jpg'},
-  {c:'sides', ar:'تشيكن بول', en:'Chicken Balls', p:170, img:'/menu-images/112104.jpg'},
-  // Soup
-  {c:'soup', ar:'شوربة لسان عصفور', en:'Orzo Soup', p:60, img:'/menu-images/111024.jpg'},
-  {c:'soup', ar:'شوربة كريمة مشروم', en:'Cream of Mushroom Soup', p:80, img:'/menu-images/635.jpg'},
-  {c:'soup', ar:'شوربة بيف بورش', en:'Beef Borscht Soup', p:100, img:'/menu-images/Traditional-Beef-Borscht-Soup-Recipe-1024x683.jpg'},
-  {c:'soup', ar:'شوربة تشيكن كورن كريمة', en:'Creamy Chicken Corn Soup', p:90, img:'/menu-images/1869.jpg'},
-  {c:'soup', ar:'شوربة تشيكن كريمة', en:'Creamy Chicken Soup', p:100, img:'/menu-images/RESIZED-cream-of-chicken-soup-9.jpg'},
-  {c:'soup', ar:'شوربة سي فود شاودر', en:'Seafood Chowder Soup', p:175, img:'/menu-images/2849.jpg'},
-  // Salad
-  {c:'salad', ar:'سلطة ثومية', en:'Garlic Dip Salad', p:25, img:'/menu-images/5511.jpg'},
-  {c:'salad', ar:'سلطة خضرا', en:'Green Salad', p:30, img:'/menu-images/47169.jpg'},
-  {c:'salad', ar:'سلطة طحينة', en:'Tahini Salad', p:35, img:'/menu-images/265.jpg'},
-  {c:'salad', ar:'سلطة كولسلو', en:'Coleslaw Salad', p:40, img:'/menu-images/66329.jpg'},
-  {c:'salad', ar:'بطاطس مايونيز', en:'Potato Mayonnaise Salad', p:60, img:'/menu-images/292.jpg'},
-  {c:'salad', ar:'تشيكن سيزر سلاد', en:'Chicken Caesar Salad', p:125, img:'/menu-images/caesar-salad-crispy-chicken-744x866.jpg'},
-  // Box & Breakfast
-  {c:'box', ar:'فطار شرقي', en:'Oriental Breakfast', p:100, img:'/menu-images/16688.jpg'},
-  {c:'box', ar:'بوكس الميريديان - 4 ساندويتش', en:'Meridien Box - 4 Sandwiches', p:120, img:'/menu-images/ChatGPT_Image_May_24_2026_03_12_12_PM.png'},
-  {c:'box', ar:'بوكس الميريديان - 8 ساندويتش', en:'Meridien Box - 8 Sandwiches', p:200, img:'/menu-images/ChatGPT_Image_May_24_2026_03_12_02_PM.png'},
-  // Kids
-  {c:'kids', ar:'هابي ميل', en:'Happy Meal', p:200, img:'/menu-images/1.jpg'},
-  // ==================== البار ====================
-  // حلويات
-  {c:'b_desserts', ar:'ام علي مكسرات', en:'Om Ali Nuts', p:100},
-  {c:'b_desserts', ar:'ام علي بلح ومكسرات', en:'Om Ali Dates & Nuts', p:110},
-  {c:'b_desserts', ar:'ام علي نوتيلا', en:'Om Ali Nutella', p:110},
-  {c:'b_desserts', ar:'ام علي فواكه', en:'Om Ali Fruits', p:145},
-  {c:'b_desserts', ar:'سلطة فواكه', en:'Fruit Salad', p:120},
-  {c:'b_desserts', ar:'زبادي فواكه قطع', en:'Fruit Yogurt Cubes', p:130},
-  {c:'b_desserts', ar:'توتي فروتي', en:'Totty Fruity', p:130},
-  {c:'b_desserts', ar:'صنداي سبيشيال (نوتيلا/اوريو/لوتس/بلوبيري/بستاشيو)', en:'Sunday Especial', p:125},
-  {c:'b_desserts', ar:'صنداي كلاسيك (كريمة+صوص+مكسرات)', en:'Sunday Classic', p:110},
-  {c:'b_desserts', ar:'ايس كريم كلاسيك (3 سكوب)', en:'IceCream Classic', p:95},
-  {c:'b_desserts', ar:'وافل شوكولاتة', en:'Chocolate Waffle', p:95},
-  {c:'b_desserts', ar:'وافل اوريو', en:'Oreo Waffle', p:110},
-  {c:'b_desserts', ar:'وافل نوتيلا', en:'Nutella Waffle', p:100},
-  {c:'b_desserts', ar:'وافل فور سيزون', en:'Four Seasons Waffle', p:110},
-  {c:'b_desserts', ar:'وافل نوتيلا و لوتس', en:'Nutella & Lotus Waffle', p:110},
-  {c:'b_desserts', ar:'وافل لوتس', en:'Lotus Waffle', p:100},
-  {c:'b_desserts', ar:'مولتن كيك', en:'Molten Cake', p:110},
-  {c:'b_desserts', ar:'كيك شوكولاتة', en:'Chocolate Cake', p:100},
-  {c:'b_desserts', ar:'تشيز كيك', en:'Cheese Cake', p:100},
-  {c:'b_desserts', ar:'ميجا براونيز', en:'Mega Brownies', p:100},
-  {c:'b_desserts', ar:'سان سيباستيان', en:'San Sebastian', p:100},
-  {c:'b_desserts', ar:'ريد فيلفيت', en:'Red Velvet', p:100},
-  // شاي
-  {c:'b_tea', ar:'شاي', en:'Tea', p:30},
-  {c:'b_tea', ar:'شاي نعناع / قرنفل', en:'Tea Mint / Clove', p:35},
-  {c:'b_tea', ar:'شاي أخضر', en:'Green Tea', p:35},
-  {c:'b_tea', ar:'براد شاي صغير / كبير', en:'Tea Pot Small / Large', p:'40 / 60'},
-  {c:'b_tea', ar:'شاي بالحليب', en:'Milk Tea', p:60},
-  {c:'b_tea', ar:'شاي كرك', en:'Karak Tea', p:55},
-  // كافيين
-  {c:'b_caffeine', ar:'اسبريسو سنجل / دبل', en:'Espresso Single / Double', p:'40 / 50'},
-  {c:'b_caffeine', ar:'هابي اسبريسو', en:'Happy Espresso', p:75},
-  {c:'b_caffeine', ar:'ميكاتو', en:'Macchiato', p:65},
-  {c:'b_caffeine', ar:'كورتادو', en:'Cortado', p:65},
-  {c:'b_caffeine', ar:'فلات وايت', en:'Flat White', p:80},
-  {c:'b_caffeine', ar:'كابتشينو كلاسيك / فلفر', en:'Cappuccino Classic / Flavor', p:'80 / 85'},
-  {c:'b_caffeine', ar:'لاتيه', en:'Latte', p:80},
-  {c:'b_caffeine', ar:'سبانش لاتيه', en:'Spanish Latte', p:95},
-  // أعشاب
-  {c:'b_herbals', ar:'كوندريلا (جنزبيل عسل ليمون)', en:'Condrella (Ginger Lime Honey)', p:45},
-  {c:'b_herbals', ar:'أعشاب (نعناع ينسون كركديه)', en:'Herbals (Mint Anise Hibiscus)', p:35},
-  {c:'b_herbals', ar:'هوت سيدر', en:'Hot Cider', p:65},
-  {c:'b_herbals', ar:'هوت سينامون', en:'Hot Cinnamon', p:70},
-  // قهوة
-  {c:'b_coffee', ar:'قهوة تركي سنجل / دبل', en:'Turkish Coffee Single / Double', p:'35 / 40'},
-  {c:'b_coffee', ar:'قهوة فرنساوي', en:'French Coffee', p:45},
-  {c:'b_coffee', ar:'قهوة بندق', en:'Hazelnut Coffee', p:50},
-  // سحلب
-  {c:'b_sahlab', ar:'سحلب مكسرات', en:'Sahlab Nuts', p:80},
-  {c:'b_sahlab', ar:'سحلب نوتيلا / لوتس', en:'Sahlab Nutella / Lotus', p:95},
-  {c:'b_sahlab', ar:'سحلب اوريو', en:'Sahlab Oreo', p:95},
-  {c:'b_sahlab', ar:'سحلب فواكه', en:'Sahlab Fruit', p:125},
-  // هوت شوكليت
-  {c:'b_hotchoc', ar:'هوت شوكليت كلاسيك', en:'Hot Chocolate Classic', p:70},
-  {c:'b_hotchoc', ar:'هوت شوكليت نوتيلا', en:'Hot Chocolate Nutella', p:80},
-  {c:'b_hotchoc', ar:'هوت شوكليت لوتس', en:'Hot Chocolate Lotus', p:80},
-  // آيس
-  {c:'b_ice', ar:'ايس امريكانو', en:'Ice Americano', p:70},
-  {c:'b_ice', ar:'ايس كابتشينو', en:'Ice Cappuccino', p:85},
-  {c:'b_ice', ar:'ايس لاتيه', en:'Ice Latte', p:80},
-  {c:'b_ice', ar:'ايس سبانش لاتيه', en:'Ice Spanish Latte', p:90},
-  {c:'b_ice', ar:'ايس ميكاتو', en:'Ice Macchiato', p:85},
-  {c:'b_ice', ar:'ايس موكا', en:'Ice Mocha', p:95},
-  {c:'b_ice', ar:'ايس نوتيلا', en:'Ice Nutella', p:90},
-  {c:'b_ice', ar:'ايس كراميل', en:'Ice Caramel', p:85},
-  {c:'b_ice', ar:'ايس تشوكليت', en:'Ice Chocolate', p:85},
-  // ميلك شيك
-  {c:'b_shake', ar:'ميلك شيك فانيليا', en:'Vanilla Milk Shake', p:85},
-  {c:'b_shake', ar:'ميلك شيك تشوكلت', en:'Chocolate Milk Shake', p:85},
-  {c:'b_shake', ar:'ميلك شيك فراولة', en:'Strawberry Milk Shake', p:85},
-  {c:'b_shake', ar:'ميلك شيك مانجو', en:'Mango Milk Shake', p:85},
-  {c:'b_shake', ar:'ميلك شيك كراميل', en:'Caramel Milk Shake', p:95},
-  {c:'b_shake', ar:'ميلك شيك بلوبيري', en:'Blueberry Milk Shake', p:95},
-  {c:'b_shake', ar:'ميلك شيك اوريو', en:'Oreo Milk Shake', p:95},
-  {c:'b_shake', ar:'ميلك تشيز (نوتيلا/لوتس/بيستاشيو/كيندر)', en:'Milk Cheese', p:100},
-  // فرابيه
-  {c:'b_frappe', ar:'فرابيه كوفي', en:'Frappe Coffee', p:85},
-  {c:'b_frappe', ar:'فرابيه كراميل', en:'Frappe Caramel', p:100},
-  {c:'b_frappe', ar:'فرابيه فانيليا', en:'Frappe Vanilla', p:85},
-  {c:'b_frappe', ar:'فرابيه تشوكلت', en:'Frappe Chocolate', p:85},
-  {c:'b_frappe', ar:'فرابيه نوتيلا', en:'Frappe Nutella', p:100},
-  {c:'b_frappe', ar:'فرابيه لوتس', en:'Frappe Lotus', p:100},
-  // سموذي
-  {c:'b_smoothie', ar:'ليمون نعناع', en:'Lemon Mint', p:90},
-  {c:'b_smoothie', ar:'اناناس', en:'Pineapple', p:95},
-  {c:'b_smoothie', ar:'تروبيكا', en:'Tropica', p:95},
-  {c:'b_smoothie', ar:'بلو اوشن', en:'Blue Ocean', p:95},
-  {c:'b_smoothie', ar:'باشون فروت', en:'Passion Fruit', p:90},
-  {c:'b_smoothie', ar:'كيوي', en:'Kiwi', p:100},
-  {c:'b_smoothie', ar:'مانجو', en:'Mango', p:95},
-  {c:'b_smoothie', ar:'فراولة', en:'Strawberry', p:85},
-  {c:'b_smoothie', ar:'بلوبيري', en:'Blueberry', p:95},
-  {c:'b_smoothie', ar:'ميكس بيري', en:'Mix Berries', p:85},
-  {c:'b_smoothie', ar:'بطيخ', en:'Watermelon', p:90},
-  {c:'b_smoothie', ar:'خوخ', en:'Peach', p:90},
-  {c:'b_smoothie', ar:'تفاح أخضر', en:'Green Apple', p:90},
-  // عصير طازة
-  {c:'b_juice', ar:'برتقال', en:'Orange', p:85},
-  {c:'b_juice', ar:'رمان', en:'Pomegranate', p:80},
-  {c:'b_juice', ar:'ليمون', en:'Lemon', p:80},
-  {c:'b_juice', ar:'ليمون نعناع', en:'Lemon Mint', p:85},
-  {c:'b_juice', ar:'بلح', en:'Dates', p:90},
-  {c:'b_juice', ar:'زبادي', en:'Yogurt', p:80},
-  {c:'b_juice', ar:'افوكادو', en:'Avocado', p:115},
-  {c:'b_juice', ar:'مانجو', en:'Mango', p:90},
-  {c:'b_juice', ar:'فراولة', en:'Strawberry', p:80},
-  {c:'b_juice', ar:'جوافة', en:'Guava', p:80},
-  {c:'b_juice', ar:'اناناس', en:'Pineapple', p:90},
-  {c:'b_juice', ar:'كيوي', en:'Kiwi', p:95},
-  {c:'b_juice', ar:'موز', en:'Banana', p:80},
-  {c:'b_juice', ar:'بطيخ', en:'Watermelon', p:85},
-  // كوكتيل
-  {c:'b_cocktail', ar:'فلوريدا (مانجو فراولة جوافة)', en:'Florida', p:95},
-  {c:'b_cocktail', ar:'روج (مانجو فراولة موز)', en:'Roug', p:95},
-  {c:'b_cocktail', ar:'جرين لايت (جوافة ليمون نعناع)', en:'Green Light', p:90},
-  {c:'b_cocktail', ar:'ماجيك جرين (كيوي مانجو)', en:'Magic Green', p:95},
-  {c:'b_cocktail', ar:'مانجو بيتش (مانجو خوخ باشون)', en:'Mango Peach', p:95},
-  {c:'b_cocktail', ar:'هوريكان (مانجو افوكادو بلوبيري)', en:'Hurricane', p:125},
-  {c:'b_cocktail', ar:'إنرجي (افوكادو بلح مكسرات)', en:'Energy', p:125},
-  {c:'b_cocktail', ar:'باور (افوكادو مانجو مكسرات)', en:'Power', p:125},
-  {c:'b_cocktail', ar:'زبادي فواكه', en:'Fruit Yogurt', p:110},
-  // مشروبات غازية
-  {c:'b_soft', ar:'مياه معدنية', en:'Water', p:15},
-  {c:'b_soft', ar:'مشروب غازي (بيبسي/سفن/ميرندا)', en:'Soft Drinks', p:50},
-  {c:'b_soft', ar:'فيروز', en:'Fayrouz', p:60},
-  {c:'b_soft', ar:'بيريل', en:'Birell', p:60},
-  {c:'b_soft', ar:'ريد بول', en:'Red Bull', p:95},
-  // صودا
-  {c:'b_souda', ar:'موهيتو كلاسيك', en:'Mojito Classic', p:85},
-  {c:'b_souda', ar:'موهيتو فروت', en:'Mojito Fruit', p:95},
-  {c:'b_souda', ar:'موهيتو ريد بول', en:'Mojito Red Bull', p:125},
-  {c:'b_souda', ar:'ريد بول ميكس', en:'Red Bull Mix', p:145},
-  {c:'b_souda', ar:'شيري كولا', en:'Cherry Cola', p:85},
-  {c:'b_souda', ar:'صن شاين', en:'SunShine', p:85},
-  {c:'b_souda', ar:'صودا بلوبيري', en:'Souda Blueberry', p:90},
-  {c:'b_souda', ar:'صودا فراولة', en:'Souda Strawberry', p:90},
-  {c:'b_souda', ar:'صودا كيوي', en:'Souda Kiwi', p:90},
+  // ==================== BEANS ====================
+  // قهوة تركية (125g / 250g)
+  {c:'b_turkish', ar:'المعتمد سبيشال سادة',  en:'Almoatamd Special Plain',  pr:'125g 130 | 250g 260'},
+  {c:'b_turkish', ar:'المعتمد سبيشال محوّج', en:'Almoatamd Special Spiced', pr:'125g 142.5 | 250g 285'},
+  {c:'b_turkish', ar:'المعتمد اورينت سادة',  en:'Almoatamd Orient Plain',   pr:'125g 80 | 250g 160'},
+  {c:'b_turkish', ar:'المعتمد اورينت محوّج', en:'Almoatamd Orient Spiced',  pr:'125g 87.5 | 250g 175'},
+  {c:'b_turkish', ar:'كولومبي سادة',         en:'Colombian Plain',          pr:'125g 150 | 250g 300'},
+  {c:'b_turkish', ar:'كولومبي محوّج',        en:'Colombian Spiced',         pr:'125g 162 | 250g 325'},
+  {c:'b_turkish', ar:'كيني جامبو سادة',      en:'Kenyan Jambo Plain',       pr:'125g 150 | 250g 300'},
+  {c:'b_turkish', ar:'كيني جامبو محوّج',     en:'Kenyan Jambo Spiced',      pr:'125g 162.5 | 250g 325'},
+  {c:'b_turkish', ar:'إثيوبي هرري سادة',     en:'Ethiopian Harrar Plain',   pr:'125g 112.5 | 250g 225'},
+  {c:'b_turkish', ar:'إثيوبي هرري محوّج',    en:'Ethiopian Harrar Spiced',  pr:'125g 125 | 250g 250'},
+  // القهوة المختصة والإسبريسو
+  {c:'b_specialty', ar:'كولومبي',       en:'Colombian',       pr:'125g 150 | 250g 300'},
+  {c:'b_specialty', ar:'يمني موكا',      en:'Yemeni Mocha',    pr:'125g 200 | 250g 400'},
+  {c:'b_specialty', ar:'كيني',          en:'Kenyan',          pr:'125g 150 | 250g 300'},
+  {c:'b_specialty', ar:'إثيوبي',        en:'Ethiopian',       pr:'125g 112.5 | 250g 225'},
+  {c:'b_specialty', ar:'كافا',          en:'Kava',            pr:'125g 137.5 | 250g 275'},
+  {c:'b_specialty', ar:'تاندرو',        en:'Tandro',          pr:'125g 137.5 | 250g 275'},
+  {c:'b_specialty', ar:'ساندرو (بلند)', en:'Sandro (Blend)',  pr:'125g 100 | 250g 200'},
+  // قهوة فرنسية
+  {c:'b_french', ar:'قهوة فرنسية بندق مع قطع البندق',        en:'French Coffee — Hazelnut',      pr:'125g 137.5 | 250g 275'},
+  {c:'b_french', ar:'قهوة فرنسية بالفراولة مع قطع الفراولة', en:'French Coffee — Strawberry',    pr:'125g 137.5 | 250g 275'},
+  {c:'b_french', ar:'قهوة فرنسية بالكاراميل ومكسرات البيكان',en:'French Coffee — Caramel & Pecan',pr:'125g 137.5 | 250g 275'},
+  {c:'b_french', ar:'قهوة فرنسية بالشوكولاتة',              en:'French Coffee — Chocolate',     pr:'125g 137.5 | 250g 275'},
+  {c:'b_french', ar:'قهوة فرنسية بالفانيليا',               en:'French Coffee — Vanilla',       pr:'125g 125 | 250g 250'},
+  {c:'b_french', ar:'قهوة فرنسية كلاسيك',                   en:'French Coffee — Classic',       pr:'125g 125 | 250g 250'},
+  // قهوة عربية
+  {c:'b_arabic', ar:'ضيافة المعتمد', en:'Almoatamd Hospitality', pr:'125g 175 | 250g 350'},
+
+  // ==================== DRINKS ====================
+  // Hot Beverages
+  {c:'d_hot', en:'Espresso',            pr:'S 45 | D 50'},
+  {c:'d_hot', en:'Macchiato',           pr:'S 55 | D 60'},
+  {c:'d_hot', en:'Cortado',             pr:'M 75'},
+  {c:'d_hot', en:'Flat White',          pr:'M 90 | L 100'},
+  {c:'d_hot', en:'Cappuccino',          pr:'M 85 | L 95'},
+  {c:'d_hot', en:'Latte',               pr:'M 75 | L 90'},
+  {c:'d_hot', en:'Spanish Latte',       pr:'M 100 | L 110'},
+  {c:'d_hot', en:'Lotus Latte',         pr:'M 85 | L 95'},
+  {c:'d_hot', en:'Popcorn Latte',       pr:'M 85 | L 95'},
+  {c:'d_hot', en:'Rose Latte',          pr:'M 85 | L 95'},
+  {c:'d_hot', en:'Cookies Latte',       pr:'M 85 | L 95'},
+  {c:'d_hot', en:'Salted Caramel Latte',pr:'M 85 | L 95'},
+  {c:'d_hot', en:'Pistachio Latte',     pr:'M 110 | L 125'},
+  {c:'d_hot', en:'Mocha White',         pr:'M 95 | L 110'},
+  {c:'d_hot', en:'Mocha Dark',          pr:'M 95 | L 110'},
+  {c:'d_hot', en:'Tiramisu Mocha',      pr:'M 110 | L 125'},
+  {c:'d_hot', en:'Caramel Macchiato',   pr:'M 100 | L 110'},
+  {c:'d_hot', en:'Americano Black',     pr:'L 85'},
+  {c:'d_hot', en:'Matcha',              pr:'M 85 | L 115'},
+  {c:'d_hot', en:'Chai Latte',          pr:'M 70 | L 90'},
+  // Color Latte
+  {c:'d_color', en:'Pink Cinnamon Latte', pr:'M 85 | L 100'},
+  {c:'d_color', en:'Blue Chai Latte',     pr:'M 85 | L 100'},
+  {c:'d_color', en:'Golden Latte',        pr:'M 85 | L 100'},
+  // Specialty Coffee
+  {c:'d_specialty', en:'V60 — Colombian · Kenyan · Ethiopian', pr:'120'},
+  // Iced Coffee (M / L / XL)
+  {c:'d_iced', en:'Iced Latte',               pr:'L 90 | XL 110'},
+  {c:'d_iced', en:'Iced Spanish Latte',       pr:'L 105 | XL 125'},
+  {c:'d_iced', en:'Iced Latte Salted Caramel',pr:'M 85 | L 100'},
+  {c:'d_iced', en:'Iced Latte Cookies',       pr:'M 85 | L 100'},
+  {c:'d_iced', en:'Iced Latte Rose',          pr:'M 85 | L 100'},
+  {c:'d_iced', en:'Iced Cappuccino',          pr:'L 90 | XL 110'},
+  {c:'d_iced', en:'Iced Americano',           pr:'L 90 | XL 110'},
+  {c:'d_iced', en:'Iced Mocha',               pr:'L 100 | XL 120'},
+  {c:'d_iced', en:'Iced White Mocha',         pr:'L 110 | XL 130'},
+  {c:'d_iced', en:'Iced Macchiato Caramel',   pr:'L 100 | XL 120'},
+  {c:'d_iced', en:'Iced Popcorn White Mocha', pr:'L 135 | XL 150'},
+  {c:'d_iced', en:'Iced Cinnamon Roll Coffee',pr:'L 135 | XL 150'},
+  {c:'d_iced', en:'Iced Latte Pistachio',     pr:'L 120 | XL 140'},
+  {c:'d_iced', en:'Iced Spanish Pistachio',   pr:'L 125 | XL 145'},
+  {c:'d_iced', en:'Iced Chocolate',           pr:'M 85 | L 100'},
+  // Iced Matcha (M / L)
+  {c:'d_matcha', en:'Matcha Vanilla',          pr:'M 105 | L 125'},
+  {c:'d_matcha', en:'Matcha White Chocolate',  pr:'M 115 | L 135'},
+  {c:'d_matcha', en:'Matcha Pistachio',        pr:'M 120 | L 140'},
+  {c:'d_matcha', en:'Matcha Blueberry',        pr:'M 115 | L 135'},
+  {c:'d_matcha', en:'Matcha Strawberry',       pr:'M 115 | L 135'},
+  {c:'d_matcha', en:'Matcha Strawberry Coconut',pr:'M 115 | L 135'},
+  // Coffee Frappe (M / L)
+  {c:'d_frappe', en:'Coffee Frappe',       pr:'M 95 | L 115'},
+  {c:'d_frappe', en:'Caramel Frappe',      pr:'M 105 | L 125'},
+  {c:'d_frappe', en:'Dark Mocha Frappe',   pr:'M 105 | L 125'},
+  {c:'d_frappe', en:'White Mocha Frappe',  pr:'M 105 | L 125'},
+  {c:'d_frappe', en:'Popcorn Frappe',      pr:'M 105 | L 125'},
+  {c:'d_frappe', en:'Cinnamon Roll Frappe',pr:'M 105 | L 125'},
+  {c:'d_frappe', en:'Pistachio Frappe',    pr:'M 125 | L 150'},
+  // Mojito (L / XL)
+  {c:'d_mojito', en:'Classic Mojito',        pr:'L 80 | XL 100'},
+  {c:'d_mojito', en:'RedBull Classic Mojito',pr:'L 110 | XL 130'},
+  {c:'d_mojito', en:'Blue Ice Mojito',       pr:'L 100 | XL 125'},
+  {c:'d_mojito', en:'Raspberry Mojito',      pr:'L 100 | XL 125'},
+  {c:'d_mojito', en:'Blueberry Mojito',      pr:'L 100 | XL 125'},
+  {c:'d_mojito', en:'Strawberry Mojito',     pr:'L 100 | XL 125'},
+  {c:'d_mojito', en:'Passion Fruit Mojito',  pr:'L 100 | XL 125'},
+  {c:'d_mojito', en:'Mango Mojito',          pr:'L 100 | XL 125'},
+  {c:'d_mojito', en:'Peach Mojito',          pr:'L 100 | XL 125'},
+  {c:'d_mojito', en:'Mango & Peach Mojito',  pr:'L 100 | XL 125'},
+  // Smoothie (M / L)
+  {c:'d_smoothie', en:'Strawberry Smoothie',          pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Blueberry Smoothie',           pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Raspberry Smoothie',           pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Mango Smoothie',               pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Mango & Peach Smoothie',       pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Mango & Kiwi Smoothie',        pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Mango Orange Coconut Smoothie',pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Passion Fruit Smoothie',       pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Peach Smoothie',               pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Tangerine Smoothie',           pr:'M 95 | L 115'},
+  {c:'d_smoothie', en:'Pineapple Smoothie',           pr:'M 95 | L 115'},
+  // Lunar (L / XL)
+  {c:'d_lunar', en:'Mango Coconut Refresher',        pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Mango Refresher',                pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Passion Fruit Refresher',        pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Peach Refresher',                pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Strawberry Refresher',           pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Dragon Fruit Berries Refresher', pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Berry Coconut Refresher',        pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Berries Refresher',              pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Passion Fruit Lunar Boba',       pr:'L 120 | XL 140'},
+  {c:'d_lunar', en:'Raspberry Lunar Boba',           pr:'L 120 | XL 140'},
+  // Milk Shakes (M / L)
+  {c:'d_shake', en:'Vanilla',      pr:'M 100 | L 120'},
+  {c:'d_shake', en:'Chocolate',    pr:'M 100 | L 120'},
+  {c:'d_shake', en:'Caramel',      pr:'M 100 | L 120'},
+  {c:'d_shake', en:'Popcorn Milk', pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Cinnamon Roll',pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Cookies',      pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Oreo',         pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Lotus',        pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Kinder',       pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Pistachio',    pr:'M 115 | L 130'},
+  {c:'d_shake', en:'Blueberry',    pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Raspberry',    pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Strawberry',   pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Passion Fruit',pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Mango',        pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Pineapple',    pr:'M 105 | L 125'},
+  {c:'d_shake', en:'Peach',        pr:'M 105 | L 125'},
+  // Hot Chocolate (M / L)
+  {c:'d_hotchoc', en:'Hot Chocolate Classic',         pr:'M 75 | L 90'},
+  {c:'d_hotchoc', en:'Hot Chocolate Orange',          pr:'M 85 | L 100'},
+  {c:'d_hotchoc', en:'Hot Chocolate Rose',            pr:'M 85 | L 100'},
+  {c:'d_hotchoc', en:'Hot Chocolate Strawberry Lotus',pr:'M 85 | L 100'},
+  {c:'d_hotchoc', en:'Hot Chocolate Lotus',           pr:'M 85 | L 100'},
+  {c:'d_hotchoc', en:'Hot Chocolate Cookies',         pr:'M 85 | L 100'},
+  {c:'d_hotchoc', en:'Hot Chocolate Salted Caramel',  pr:'M 85 | L 100'},
+  // Turkish Coffee (S / M)
+  {c:'d_turkish', en:'Turkish Coffee', pr:'S 35 | M 50'},
+  // French Coffee (M)
+  {c:'d_french', en:'Classic',    pr:'60'},
+  {c:'d_french', en:'Vanilla',    pr:'60'},
+  {c:'d_french', en:'Strawberry', pr:'70'},
+  {c:'d_french', en:'Hazelnut',   pr:'70'},
+  {c:'d_french', en:'Caramel',    pr:'70'},
+  {c:'d_french', en:'Chocolate',  pr:'70'},
+  // Tea
+  {c:'d_tea', en:'Karak Tea Zaafaran', pr:'60'},
+  {c:'d_tea', en:'Tea Black / Green',  pr:'35'},
+  {c:'d_tea', en:'English Tea Flavor', pr:'45'},
+  // RedBull
+  {c:'d_redbull', en:'RedBull Classic',                pr:'90'},
+  {c:'d_redbull', en:'RedBull Sugar Free',             pr:'90'},
+  {c:'d_redbull', en:'RedBull Vanilla & Berries Winter',pr:'90'},
+  {c:'d_redbull', en:'RedBull Coconut & Berry White',  pr:'90'},
+  {c:'d_redbull', en:'RedBull Blueberry Purple',       pr:'90'},
+  {c:'d_redbull', en:'RedBull Acai Berry Blue',        pr:'90'},
+  // Extra
+  {c:'d_extra', en:'Mineral Water 600ml',   pr:'15'},
+  {c:'d_extra', en:'Schweppes Soda 250ml',  pr:'25'},
+  {c:'d_extra', en:'Ice & Cup',             pr:'25'},
+  {c:'d_extra', en:'Espresso Shot',         pr:'25'},
+  {c:'d_extra', en:'Whipped Cream',         pr:'20'},
+  {c:'d_extra', en:'Flavor',                pr:'20'},
+  {c:'d_extra', en:'Boba',                  pr:'30'},
 ];
 
 const DEFAULT_DATA = { SECTIONS:DEFAULT_SECTIONS, CATS:DEFAULT_CATS, PRODUCTS:DEFAULT_PRODUCTS };
@@ -560,119 +397,95 @@ const DEFAULT_DATA = { SECTIONS:DEFAULT_SECTIONS, CATS:DEFAULT_CATS, PRODUCTS:DE
    ============================================================ */
 function buildUrl(){
   const bust = '_cb=' + Date.now();
-  if(CONFIG.SHEET_CSV_URL){
-    return CONFIG.SHEET_CSV_URL + (CONFIG.SHEET_CSV_URL.includes('?') ? '&' : '?') + bust;
-  }
-  if(CONFIG.SHEET_ID){
-    return 'https://docs.google.com/spreadsheets/d/' + CONFIG.SHEET_ID +
-           '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(CONFIG.SHEET_NAME||'') + '&' + bust;
-  }
+  if(CONFIG.SHEET_CSV_URL) return CONFIG.SHEET_CSV_URL + (CONFIG.SHEET_CSV_URL.includes('?')?'&':'?') + bust;
+  if(CONFIG.SHEET_ID) return 'https://docs.google.com/spreadsheets/d/'+CONFIG.SHEET_ID+
+    '/gviz/tq?tqx=out:csv&sheet='+encodeURIComponent(CONFIG.SHEET_NAME||'')+'&'+bust;
   return '';
 }
 
-/* مُحلّل CSV يتعامل مع الفواصل داخل النصوص وعلامات التنصيص والأسطر المتعددة */
 function parseCSV(text){
-  const rows = []; let row = []; let field = ''; let inQ = false;
-  text = text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
+  const rows=[]; let row=[]; let field=''; let inQ=false;
+  text=text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
   for(let i=0;i<text.length;i++){
-    const ch = text[i];
+    const ch=text[i];
     if(inQ){
-      if(ch === '"'){
-        if(text[i+1] === '"'){ field += '"'; i++; }
-        else inQ = false;
-      } else field += ch;
+      if(ch==='"'){ if(text[i+1]==='"'){ field+='"'; i++; } else inQ=false; }
+      else field+=ch;
     } else {
-      if(ch === '"') inQ = true;
-      else if(ch === ','){ row.push(field); field = ''; }
-      else if(ch === '\n'){ row.push(field); rows.push(row); row = []; field = ''; }
-      else field += ch;
+      if(ch==='"') inQ=true;
+      else if(ch===','){ row.push(field); field=''; }
+      else if(ch==='\n'){ row.push(field); rows.push(row); row=[]; field=''; }
+      else field+=ch;
     }
   }
-  if(field.length || row.length){ row.push(field); rows.push(row); }
-  return rows.filter(r => r.some(c => (c||'').trim() !== ''));
+  if(field.length||row.length){ row.push(field); rows.push(row); }
+  return rows.filter(r=>r.some(c=>(c||'').trim()!==''));
 }
 
-/* مطابقة أسماء الأعمدة (عربي أو إنجليزي) */
 function normHeader(h){ return (h||'').trim().toLowerCase().replace(/[\s_\-]+/g,''); }
 const FIELD_OF = {
-  'section':'section','sec':'section','القسم':'section','القسمالرئيسي':'section','الرئيسي':'section',
-  'category':'category_ar','categoryar':'category_ar','cat':'category_ar','التصنيف':'category_ar','الصنف':'category_ar','القسمالفرعي':'category_ar','النوع':'category_ar','المجموعة':'category_ar',
-  'categoryen':'category_en','categoryenglish':'category_en','التصنيفenglish':'category_en',
-  'name':'name_ar','namear':'name_ar','الاسم':'name_ar','المنتج':'name_ar','اسمالمنتج':'name_ar','الاسمعربي':'name_ar','الصنفعربي':'name_ar',
-  'nameen':'name_en','english':'name_en','nameenglish':'name_en','الاسمانجليزي':'name_en','الاسمبالانجليزي':'name_en',
-  'price':'price','p':'price','السعر':'price','الثمن':'price','سعر':'price',
-  'image':'image','img':'image','صورة':'image','الصورة':'image','رابطالصورة':'image','picture':'image',
-  'available':'available','avail':'available','متاح':'available','الحالة':'available','ظاهر':'available','status':'available',
+  'section':'section','sec':'section','القسم':'section','القسمالرئيسي':'section',
+  'category':'category_ar','categoryar':'category_ar','cat':'category_ar','التصنيف':'category_ar','الصنف':'category_ar','المجموعة':'category_ar',
+  'categoryen':'category_en','categoryenglish':'category_en',
+  'name':'name_ar','namear':'name_ar','الاسم':'name_ar','المنتج':'name_ar','الاسمعربي':'name_ar',
+  'nameen':'name_en','english':'name_en','nameenglish':'name_en','الاسمانجليزي':'name_en',
+  'prices':'prices','price':'prices','p':'prices','السعر':'prices','الاسعار':'prices','الأسعار':'prices',
+  'available':'available','avail':'available','متاح':'available','الحالة':'available','status':'available',
 };
 
 function isHidden(v){
   if(!v) return false;
-  const n = v.trim().toLowerCase().replace(/\s+/g,'');
-  return ['no','false','0','hide','hidden','off','لا','مخفي','غيرمتاح','stop','مخفى'].includes(n);
+  const n=v.trim().toLowerCase().replace(/\s+/g,'');
+  return ['no','false','0','hide','hidden','off','لا','مخفي','مخفى','غيرمتاح','stop'].includes(n);
 }
 
 function normSection(v){
-  const raw = (v||'').trim();
-  const n = raw.toLowerCase();
-  if(n==='bar' || n==='b' || raw.includes('بار')) return { id:'bar', ar:'البار', en:'Bar' };
-  if(n==='kitchen' || n==='food' || n==='k' || raw.includes('مطبخ')) return { id:'kitchen', ar:'المطبخ', en:'Kitchen' };
-  if(!raw) return { id:'kitchen', ar:'المطبخ', en:'Kitchen' };
-  return { id:'sec_'+n.replace(/\s+/g,'_'), ar:raw, en:'' };
+  const raw=(v||'').trim(); const n=raw.toLowerCase();
+  if(n==='beans'||raw.includes('بن')||raw.includes('حبوب')||raw.includes('قهوة محمصة')) return {id:'beans', ar:'حبوب البُن', en:'BEANS'};
+  if(n==='drinks'||n==='drink'||raw.includes('مشروب')||raw.includes('مشروبات')) return {id:'drinks', ar:'المشروبات', en:'DRINKS'};
+  if(!raw) return {id:'drinks', ar:'المشروبات', en:'DRINKS'};
+  return {id:'sec_'+n.replace(/\s+/g,'_'), ar:raw, en:raw.toUpperCase()};
 }
 
-/* تحويل صفوف الشيت إلى بنية المنيو */
 function rowsToData(rows){
-  if(!rows || rows.length < 2) return null;
-  const header = rows[0].map(normHeader);
-  const idx = {};
-  header.forEach((h,i)=>{ const f = FIELD_OF[h]; if(f && idx[f]===undefined) idx[f]=i; });
-  if(idx.name_ar === undefined) return null;   // لازم عمود اسم على الأقل
+  if(!rows||rows.length<2) return null;
+  const header=rows[0].map(normHeader);
+  const idx={};
+  header.forEach((h,i)=>{ const f=FIELD_OF[h]; if(f&&idx[f]===undefined) idx[f]=i; });
+  if(idx.name_ar===undefined && idx.name_en===undefined) return null;
 
-  const sectionsMap = new Map();
-  const cats = [];
-  const catKey = new Map();
-  const products = [];
-
+  const sectionsMap=new Map(); const cats=[]; const catKey=new Map(); const products=[];
   for(let r=1;r<rows.length;r++){
-    const row = rows[r];
-    const get = f => (idx[f]!==undefined ? (row[idx[f]]||'') : '').trim();
-    const nameAr = get('name_ar');
-    if(!nameAr) continue;
+    const row=rows[r];
+    const get=f=>(idx[f]!==undefined?(row[idx[f]]||''):'').trim();
+    const nameAr=get('name_ar'), nameEn=get('name_en');
+    if(!nameAr && !nameEn) continue;
     if(isHidden(get('available'))) continue;
 
-    const sec = normSection(get('section') || 'kitchen');
+    const sec=normSection(get('section')||'drinks');
     if(!sectionsMap.has(sec.id)) sectionsMap.set(sec.id, sec);
 
-    const catAr = get('category_ar') || 'أخرى';
-    const catEn = get('category_en');
-    const key = sec.id + '||' + catAr;
-    let catId = catKey.get(key);
-    if(!catId){
-      catId = 'c' + cats.length;
-      catKey.set(key, catId);
-      cats.push({ id:catId, s:sec.id, ar:catAr, en:catEn });
-    }
+    const catAr=get('category_ar')||'أخرى'; const catEn=get('category_en');
+    const key=sec.id+'||'+catAr;
+    let catId=catKey.get(key);
+    if(!catId){ catId='c'+cats.length; catKey.set(key,catId); cats.push({id:catId, s:sec.id, ar:catAr, en:catEn}); }
 
-    const img = get('image');
-    const prod = { c:catId, ar:nameAr, en:get('name_en'), p:get('price') };
-    if(img) prod.img = img;
-    products.push(prod);
+    products.push({c:catId, ar:nameAr, en:nameEn, pr:get('prices')});
   }
-
   if(!products.length) return null;
-  return { SECTIONS:[...sectionsMap.values()], CATS:cats, PRODUCTS:products };
+  return {SECTIONS:[...sectionsMap.values()], CATS:cats, PRODUCTS:products};
 }
 
 async function loadData(){
-  const url = buildUrl();
-  if(!url) return DEFAULT_DATA;               // الشيت مش متظبط لسه → نسخة احتياطية
+  const url=buildUrl();
+  if(!url) return DEFAULT_DATA;
   try{
-    const res = await fetch(url, { cache:'no-store' });
+    const res=await fetch(url,{cache:'no-store'});
     if(!res.ok) throw new Error('HTTP '+res.status);
-    const data = rowsToData(parseCSV(await res.text()));
-    return data || DEFAULT_DATA;
+    const data=rowsToData(parseCSV(await res.text()));
+    return data||DEFAULT_DATA;
   }catch(e){
-    console.warn('تعذّر تحميل جوجل شيت — سيتم عرض البيانات الافتراضية.', e);
+    console.warn('تعذّر تحميل جوجل شيت — عرض البيانات الافتراضية.', e);
     return DEFAULT_DATA;
   }
 }
@@ -682,44 +495,49 @@ async function loadData(){
    ============================================================ */
 function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
+function parsePrices(str){
+  if(str==null) return [];
+  return String(str).split('|').map(s=>s.trim()).filter(Boolean).map(seg=>{
+    const parts=seg.split(/\s+/);
+    if(parts.length>=2) return {label:parts.slice(0,-1).join(' '), value:parts[parts.length-1]};
+    return {label:'', value:parts[0]};
+  }).filter(x=>x.value && x.value!=='-');
+}
+
 function initMenu(data){
-  const SECTIONS = data.SECTIONS, CATS = data.CATS, PRODUCTS = data.PRODUCTS;
-
-  const nav = document.getElementById('nav');
-  const menu = document.getElementById('menu');
-  menu.innerHTML = '';   // شيل حالة التحميل
-
-  const navLinks = {};
-  const sections = [];
+  const SECTIONS=data.SECTIONS, CATS=data.CATS, PRODUCTS=data.PRODUCTS;
+  const nav=document.getElementById('nav');
+  const menu=document.getElementById('menu');
+  menu.innerHTML='';
+  const navLinks={}; const sections=[];
 
   function renderCategory(cat){
-    const items = PRODUCTS.filter(p => p.c === cat.id);
+    const items=PRODUCTS.filter(p=>p.c===cat.id);
     if(!items.length) return;
 
-    const a = document.createElement('a');
-    a.href = '#cat-'+cat.id;
-    a.textContent = cat.ar;
-    a.dataset.cat = cat.id;
-    navLinks[cat.id] = a;
-    nav.appendChild(a);
+    const a=document.createElement('a');
+    a.href='#cat-'+cat.id; a.textContent=cat.ar; a.dataset.cat=cat.id;
+    navLinks[cat.id]=a; nav.appendChild(a);
 
-    const sec = document.createElement('section');
-    sec.className = 'cat';
-    sec.id = 'cat-'+cat.id;
-
-    const head = document.createElement('div');
-    head.className = 'cat-head';
-    head.innerHTML = '<h2>'+esc(cat.ar)+'</h2><span class="line"></span><span class="count">'+items.length+' صنف</span>';
+    const sec=document.createElement('section');
+    sec.className='cat'; sec.id='cat-'+cat.id;
+    const head=document.createElement('div');
+    head.className='cat-head';
+    head.innerHTML='<span class="ar">'+esc(cat.ar)+'</span>'+(cat.en?'<span class="en">'+esc(cat.en)+'</span>':'')+'<span class="line"></span>';
     sec.appendChild(head);
 
-    const list = document.createElement('div');
-    list.className = 'menu-list';
+    const list=document.createElement('div');
+    list.className='items';
     items.forEach(p=>{
-      const row = document.createElement('div');
-      row.className = 'menu-row';
-      row.innerHTML =
-        '<div class="info"><div class="r-ar">'+esc(p.ar)+'</div><div class="r-en">'+esc(p.en)+'</div></div>'+
-        '<div class="r-price">'+esc(p.p)+'<small>ج.م</small></div>';
+      const primary=p.ar||p.en||''; const secondary=p.ar?(p.en||''):'';
+      const priceHtml=parsePrices(p.pr).map(x=>x.label
+        ? '<span class="pp"><b>'+esc(x.label)+'</b>'+esc(x.value)+'</span>'
+        : '<span class="pp">'+esc(x.value)+'</span>').join('');
+      const row=document.createElement('div');
+      row.className='item';
+      row.innerHTML='<div class="nm"><div class="na">'+esc(primary)+'</div>'+
+        (secondary?'<div class="ne">'+esc(secondary)+'</div>':'')+'</div>'+
+        '<div class="prices">'+priceHtml+'</div>';
       list.appendChild(row);
     });
     sec.appendChild(list);
@@ -728,108 +546,76 @@ function initMenu(data){
   }
 
   SECTIONS.forEach(section=>{
-    const secCats = CATS.filter(c => c.s === section.id);
-
-    const banner = document.createElement('div');
-    banner.className = 'section-head';
-    banner.id = 'sec-'+section.id;
-    banner.innerHTML = '<span class="rule"></span><h2>'+esc(section.ar)+'<span class="en">'+esc(section.en)+'</span></h2><span class="rule"></span>';
+    const secCats=CATS.filter(c=>c.s===section.id);
+    const banner=document.createElement('div');
+    banner.className='band'; banner.id='sec-'+section.id;
+    banner.innerHTML='<h2>'+esc(section.en||section.ar)+'</h2><div class="ar">'+esc(section.ar)+'</div>';
     menu.appendChild(banner);
 
-    const hasItems = secCats.some(c => PRODUCTS.some(p => p.c === c.id));
+    const hasItems=secCats.some(c=>PRODUCTS.some(p=>p.c===c.id));
     if(!hasItems){
-      const soon = document.createElement('div');
-      soon.className = 'soon';
-      soon.textContent = '🍹 قسم '+section.ar+' — قريبًا';
-      menu.appendChild(soon);
-      return;
+      const soon=document.createElement('div');
+      soon.className='soon'; soon.textContent='☕ '+(section.ar)+' — قريبًا';
+      menu.appendChild(soon); return;
     }
     secCats.forEach(renderCategory);
   });
 
-  /* تظليل التصنيف المفتوح */
-  let activeId = null;
+  /* تظليل التصنيف أثناء التمرير */
+  let activeId=null;
   function setActive(id){
-    if(id === activeId) return;
-    activeId = id;
+    if(id===activeId) return; activeId=id;
     for(const k in navLinks) navLinks[k].classList.toggle('active', k===id);
-    const a = navLinks[id];
-    if(a) a.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'});
+    const a=navLinks[id]; if(a) a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
   }
-  const spy = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting) setActive(e.target.id.replace('cat-','')); });
-  }, { rootMargin:'-42% 0px -52% 0px', threshold:0 });
+  const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setActive(e.target.id.replace('cat-',''));});},
+    {rootMargin:'-42% 0px -52% 0px',threshold:0});
   sections.forEach(s=>spy.observe(s));
   if(sections[0]) setActive(sections[0].id.replace('cat-',''));
+  nav.addEventListener('click',e=>{const a=e.target.closest('a'); if(a&&a.dataset.cat) setActive(a.dataset.cat);});
 
-  nav.addEventListener('click', e=>{
-    const a = e.target.closest('a');
-    if(a && a.dataset.cat) setActive(a.dataset.cat);
-  });
-
-  /* تابات الأقسام الرئيسية */
-  const tabsEl = document.getElementById('tabs');
-  tabsEl.innerHTML = '';
-  const tabBtns = {};
+  /* تابات BEANS / DRINKS */
+  const tabsEl=document.getElementById('tabs'); tabsEl.innerHTML='';
+  const tabBtns={};
   SECTIONS.forEach(section=>{
-    if(!CATS.some(c => c.s === section.id && PRODUCTS.some(p => p.c === c.id))) return;
-    const b = document.createElement('button');
-    b.textContent = section.ar;
-    b.dataset.sec = section.id;
-    b.addEventListener('click', ()=>{
-      const banner = document.getElementById('sec-'+section.id);
-      if(banner) banner.scrollIntoView({behavior:'smooth', block:'start'});
-      setTab(section.id);
-    });
-    tabBtns[section.id] = b;
-    tabsEl.appendChild(b);
+    if(!CATS.some(c=>c.s===section.id && PRODUCTS.some(p=>p.c===c.id))) return;
+    const b=document.createElement('button');
+    b.textContent=section.en||section.ar; b.dataset.sec=section.id;
+    b.addEventListener('click',()=>{const banner=document.getElementById('sec-'+section.id); if(banner) banner.scrollIntoView({behavior:'smooth',block:'start'}); setTab(section.id);});
+    tabBtns[section.id]=b; tabsEl.appendChild(b);
   });
   function setTab(id){ for(const k in tabBtns) tabBtns[k].classList.toggle('active', k===id); }
-  const firstTab = Object.keys(tabBtns)[0];
-  if(firstTab) setTab(firstTab);
+  const firstTab=Object.keys(tabBtns)[0]; if(firstTab) setTab(firstTab);
+  const secSpy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setTab(e.target.id.replace('sec-',''));});},
+    {rootMargin:'0px 0px -76% 0px',threshold:0});
+  document.querySelectorAll('.band').forEach(el=>secSpy.observe(el));
 
-  const secSpy = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting) setTab(e.target.id.replace('sec-','')); });
-  }, { rootMargin:'0px 0px -76% 0px', threshold:0 });
-  document.querySelectorAll('.section-head').forEach(el=>secSpy.observe(el));
-
-  /* زر تصدير الشيت (يظهر فقط عند فتح الصفحة بـ #admin) */
-  if(location.hash === '#admin') addExportLink(data);
+  if(location.hash==='#admin') addExportLink(data);
 }
 
-/* تصدير البيانات الحالية كملف CSV جاهز للرفع على Google Sheets */
+/* تصدير الشيت */
 function addExportLink(data){
-  const footer = document.querySelector('footer');
-  const btn = document.createElement('button');
-  btn.className = 'exp';
-  btn.textContent = '📄 تنزيل ملف الشيت (CSV)';
-  btn.onclick = ()=>downloadCSV(data);
-  footer.appendChild(document.createElement('br'));
-  footer.appendChild(btn);
+  const footer=document.querySelector('footer');
+  const btn=document.createElement('button');
+  btn.className='exp'; btn.textContent='📄 تنزيل ملف الشيت (CSV)';
+  btn.onclick=()=>downloadCSV(data);
+  footer.appendChild(document.createElement('br')); footer.appendChild(btn);
 }
-function csvCell(v){
-  const s = String(v==null?'':v);
-  return /[",\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s;
-}
+function csvCell(v){ const s=String(v==null?'':v); return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s; }
 function downloadCSV(data){
-  const catMap = {}; data.CATS.forEach(c=>catMap[c.id]=c);
-  const secMap = {}; data.SECTIONS.forEach(s=>secMap[s.id]=s);
-  const rows = [['section','category_ar','category_en','name_ar','name_en','price','image','available']];
+  const catMap={}; data.CATS.forEach(c=>catMap[c.id]=c);
+  const secMap={}; data.SECTIONS.forEach(s=>secMap[s.id]=s);
+  const rows=[['section','category_ar','category_en','name_ar','name_en','prices','available']];
   data.PRODUCTS.forEach(p=>{
-    const cat = catMap[p.c] || {};
-    const sec = secMap[cat.s] || {};
-    rows.push([ sec.ar||cat.s||'', cat.ar||'', cat.en||'', p.ar||'', p.en||'', p.p==null?'':p.p, p.img||'', 'yes' ]);
+    const cat=catMap[p.c]||{}; const sec=secMap[cat.s]||{};
+    rows.push([ sec.en||cat.s||'', cat.ar||'', cat.en||'', p.ar||'', p.en||'', p.pr||'', 'yes' ]);
   });
-  const csv = '﻿' + rows.map(r=>r.map(csvCell).join(',')).join('\n');
-  const blob = new Blob([csv], {type:'text/csv;charset=utf-8'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'meridien-menu.csv';
-  a.click();
-  URL.revokeObjectURL(a.href);
+  const csv='﻿'+rows.map(r=>r.map(csvCell).join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='almoatamd-menu.csv'; a.click(); URL.revokeObjectURL(a.href);
 }
 
-/* تشغيل */
 loadData().then(initMenu);
 </script>
 </body>
