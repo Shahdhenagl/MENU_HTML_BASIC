@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>المعتمد — ALMOATAMD</title>
+<title>ALMOATAMD — Menu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Poppins:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800&family=Poppins:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
     --maroon:#6d1224;
     --maroon2:#8a1c2e;
     --teal:#15535d;
-    --teal2:#0f3f47;
-    --warm:#e2a17c;
+    --warm:#e0956e;
     --cream:#fbf6f0;
     --ink:#33292a;
-    --muted:#9c8478;
+    --muted:#a08876;
     --line:#ecdbcb;
     --card:#fffdfb;
   }
@@ -24,80 +23,73 @@
   html{scroll-behavior:smooth}
   body{
     font-family:'Quicksand','Cairo',system-ui,'Segoe UI',Tahoma,sans-serif;
-    color:var(--ink);
-    -webkit-font-smoothing:antialiased;
+    color:var(--ink);-webkit-font-smoothing:antialiased;
     background:linear-gradient(180deg,#fdf9f4 0%, #f8ecdf 48%, #f0d8c5 100%) fixed;
     min-height:100vh;
   }
-  .wrap{max-width:1120px;margin:0 auto;padding:0 18px 60px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 16px 60px}
 
-  /* ===== Header / brand ===== */
-  header{text-align:center;padding:44px 16px 26px}
-  .logo{width:96px;height:96px;margin:0 auto 12px;color:var(--maroon);
-    filter:drop-shadow(0 6px 14px rgba(109,18,36,.22))}
+  /* ===== Brand ===== */
+  header{text-align:center;padding:38px 16px 22px}
+  .logo{width:82px;height:82px;margin:0 auto 12px;color:var(--maroon);
+    filter:drop-shadow(0 6px 13px rgba(109,18,36,.20))}
   .logo svg{width:100%;height:100%;display:block}
-  .brand-ar{font-family:'Cairo',sans-serif;font-weight:800;font-size:1.5rem;color:var(--maroon);letter-spacing:2px;margin-bottom:-2px}
-  .brand-en{font-family:'Poppins',sans-serif;font-weight:800;font-size:2.5rem;letter-spacing:6px;
-    color:var(--maroon);line-height:1.05}
-  .tagline{font-family:'Poppins',serif;font-style:italic;color:var(--warm);font-weight:600;
-    letter-spacing:1px;font-size:.9rem;margin-top:6px}
-  .handle{display:inline-block;margin-top:12px;color:var(--teal);font-weight:700;font-size:.82rem;
-    background:rgba(21,83,93,.08);padding:5px 14px;border-radius:999px;letter-spacing:.5px}
-  @media(min-width:560px){ .brand-en{font-size:3rem} .logo{width:110px;height:110px} }
+  .brand-ar{font-family:'Cairo',sans-serif;font-weight:800;font-size:1.35rem;color:var(--maroon);letter-spacing:2px;margin-bottom:-2px}
+  .brand-en{font-family:'Poppins',sans-serif;font-weight:800;font-size:2.3rem;letter-spacing:6px;color:var(--maroon);line-height:1.05}
+  .tagline{font-family:'Poppins',sans-serif;font-style:italic;color:var(--warm);font-weight:600;letter-spacing:1px;font-size:.85rem;margin-top:6px}
+  @media(min-width:560px){ .brand-en{font-size:2.9rem} .logo{width:96px;height:96px} }
 
   /* ===== Sticky tabs + nav ===== */
-  .topbar{position:sticky;top:0;z-index:30;
-    background:rgba(253,249,244,.94);backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);margin-bottom:26px}
-  .tabs{display:flex;justify-content:center;gap:10px;padding:12px 14px 8px}
-  .tabs button{flex:0 0 auto;min-width:130px;font-family:'Poppins',sans-serif;font-size:.95rem;font-weight:700;
+  .topbar{position:sticky;top:0;z-index:30;background:rgba(253,249,244,.94);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);margin-bottom:24px}
+  .tabs{display:flex;justify-content:center;gap:10px;padding:11px 14px 7px}
+  .tabs button{flex:1 1 0;max-width:220px;font-family:'Poppins',sans-serif;font-size:.92rem;font-weight:700;
     letter-spacing:2px;cursor:pointer;color:var(--maroon);background:transparent;
-    border:1.6px solid rgba(109,18,36,.32);border-radius:999px;padding:9px 24px;transition:.2s}
+    border:1.6px solid rgba(109,18,36,.30);border-radius:999px;padding:9px 20px;transition:.2s}
   .tabs button:hover{border-color:var(--maroon)}
   .tabs button.active{color:#fff;background:linear-gradient(180deg,var(--maroon2),var(--maroon));
-    border-color:var(--maroon);box-shadow:0 6px 16px rgba(109,18,36,.32)}
-  nav{display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;padding:4px 14px 12px;
+    border-color:var(--maroon);box-shadow:0 6px 15px rgba(109,18,36,.30)}
+  nav{display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;padding:4px 14px 11px;
     scrollbar-width:thin;scrollbar-color:var(--warm) transparent;-webkit-overflow-scrolling:touch}
   nav::-webkit-scrollbar{height:5px}
   nav::-webkit-scrollbar-thumb{background:var(--warm);border-radius:10px}
-  nav a{flex:0 0 auto;color:var(--teal);text-decoration:none;font-weight:700;font-size:.86rem;
-    padding:7px 15px;border:1px solid var(--line);border-radius:999px;white-space:nowrap;
-    background:var(--card);transition:.2s}
+  nav a{flex:0 0 auto;color:var(--teal);text-decoration:none;font-family:'Poppins',sans-serif;font-weight:600;font-size:.8rem;
+    padding:7px 14px;border:1px solid var(--line);border-radius:999px;white-space:nowrap;background:var(--card);transition:.2s}
   nav a:hover{border-color:var(--warm)}
   nav a.active{color:#fff;background:var(--teal);border-color:var(--teal)}
 
   /* ===== Section band ===== */
-  .band{max-width:1120px;margin:6px auto 26px;padding:24px 20px;border-radius:20px;text-align:center;
-    color:#fff;scroll-margin-top:120px;
-    background:linear-gradient(115deg,var(--maroon) 0%, var(--maroon2) 42%, var(--warm) 115%);
-    box-shadow:0 12px 30px rgba(109,18,36,.22)}
-  .band h2{font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:5px;font-size:1.9rem}
-  .band .ar{font-family:'Cairo',sans-serif;font-weight:700;opacity:.92;font-size:1rem;margin-top:2px}
-  @media(min-width:1156px){ .band{margin-inline:auto} }
+  .band{max-width:720px;margin:6px auto 24px;padding:22px 20px;border-radius:18px;text-align:center;color:#fff;scroll-margin-top:118px;
+    background:linear-gradient(115deg,var(--maroon) 0%, var(--maroon2) 42%, var(--warm) 118%);
+    box-shadow:0 12px 28px rgba(109,18,36,.20)}
+  .band h2{font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:5px;font-size:1.8rem}
+  .band .ar{font-family:'Cairo',sans-serif;font-weight:700;opacity:.9;font-size:.95rem;margin-top:2px}
 
   /* ===== Category ===== */
-  .cat{margin-bottom:34px;scroll-margin-top:112px}
-  .cat-head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px}
-  .cat-head .ar{font-family:'Cairo',sans-serif;font-weight:800;font-size:1.5rem;color:var(--maroon);white-space:nowrap}
-  .cat-head .en{font-family:'Poppins',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:2px;
-    color:var(--warm);text-transform:uppercase;white-space:nowrap}
-  .cat-head .line{flex:1;height:2px;border-radius:2px;
-    background:linear-gradient(90deg,rgba(109,18,36,.35),transparent)}
+  .cat{max-width:720px;margin:0 auto 30px;scroll-margin-top:112px}
+  .cat-head{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+  .cat-head .c-main{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:1px;
+    color:var(--maroon);text-transform:uppercase;white-space:nowrap}
+  .cat-head .c-sub{font-family:'Cairo',sans-serif;font-weight:700;font-size:.85rem;color:var(--warm);white-space:nowrap}
+  .cat-head .line{flex:1;height:2px;border-radius:2px;background:linear-gradient(90deg,rgba(109,18,36,.32),transparent)}
 
-  .items{display:grid;grid-template-columns:1fr;gap:0 42px}
-  @media(min-width:760px){ .items{grid-template-columns:1fr 1fr} }
+  .price-key{display:flex;justify-content:flex-end;padding:0 2px 5px}
+  .price-key span{width:var(--pw,50px);text-align:center;font-family:'Poppins',sans-serif;font-size:.64rem;font-weight:800;
+    color:var(--maroon);letter-spacing:.5px;border-bottom:1.5px solid rgba(109,18,36,.55);padding-bottom:2px}
 
-  .item{display:flex;align-items:baseline;gap:12px;padding:10px 4px;
-    border-bottom:1px dashed var(--line)}
+  .items{display:flex;flex-direction:column}
+  .item{display:flex;align-items:baseline;gap:12px;padding:8px 2px;border-bottom:1px dashed var(--line)}
   .item .nm{flex:1;min-width:0}
-  .item .na{font-family:'Quicksand','Cairo',sans-serif;font-weight:700;font-size:1.02rem;color:var(--teal);line-height:1.3}
-  .item .ne{font-size:.72rem;color:var(--muted);margin-top:1px;letter-spacing:.2px}
-  .item .prices{display:flex;gap:14px;white-space:nowrap;align-items:baseline}
-  .pp{font-family:'Poppins',sans-serif;color:var(--teal);font-weight:700;font-size:1.02rem}
-  .pp b{color:var(--maroon);font-weight:800;font-size:.58rem;letter-spacing:.5px;margin-inline-end:3px;
-    vertical-align:middle;opacity:.85}
+  .item .na{font-family:'Quicksand','Cairo',sans-serif;font-weight:700;font-size:1rem;color:var(--teal);line-height:1.3}
+  .item .ne{font-family:'Cairo',sans-serif;font-size:.76rem;color:var(--muted);margin-top:1px}
+  .cells{display:flex;flex:0 0 auto}
+  .cells .c{width:var(--pw,50px);text-align:center;font-family:'Poppins',sans-serif;font-weight:700;color:var(--teal);font-size:1rem}
+  .cells .c.dash{color:var(--muted);opacity:.5}
+  .inline{display:flex;gap:12px;flex:0 0 auto;align-items:baseline}
+  .pp{font-family:'Poppins',sans-serif;color:var(--teal);font-weight:700;font-size:1rem;white-space:nowrap}
+  .pp b{color:var(--maroon);font-weight:800;font-size:.58rem;letter-spacing:.5px;margin-inline-end:3px;vertical-align:middle;opacity:.85}
 
-  .soon{max-width:1120px;margin:0 18px 40px;padding:30px 18px;text-align:center;color:var(--muted);
+  .soon{max-width:720px;margin:0 auto 40px;padding:28px 18px;text-align:center;color:var(--muted);
     border:1px dashed var(--line);border-radius:16px;font-weight:600}
 
   .status{text-align:center;color:var(--muted);padding:60px 16px;font-weight:600}
@@ -105,46 +97,55 @@
     border:3px solid var(--line);border-top-color:var(--maroon);animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
 
-  footer{text-align:center;color:var(--muted);font-size:.84rem;padding:36px 16px 12px;
-    border-top:1px solid var(--line);margin-top:24px}
-  footer b{color:var(--maroon)}
-  footer .exp{display:inline-block;margin-top:12px;color:var(--muted);font-size:.76rem;
-    text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit}
-  footer .exp:hover{color:var(--maroon)}
+  /* ===== Footer (with Instagram) ===== */
+  footer{text-align:center;padding:36px 16px 16px;border-top:1px solid var(--line);margin-top:26px}
+  .foot-logo{width:52px;height:52px;margin:0 auto 8px;color:var(--maroon);opacity:.85}
+  .foot-logo svg{width:100%;height:100%}
+  .foot-brand{font-family:'Poppins',sans-serif;font-weight:800;letter-spacing:3px;color:var(--maroon);font-size:1rem}
+  .foot-tag{color:var(--warm);font-style:italic;font-size:.8rem;font-weight:600;margin-top:2px}
+  .ig{display:inline-flex;align-items:center;gap:7px;margin-top:14px;color:#fff;font-family:'Poppins',sans-serif;
+    font-weight:700;font-size:.82rem;text-decoration:none;letter-spacing:.5px;
+    background:linear-gradient(120deg,var(--maroon2),var(--maroon));padding:8px 18px;border-radius:999px;
+    box-shadow:0 5px 14px rgba(109,18,36,.28)}
+  .ig svg{width:16px;height:16px}
+  .foot-note{color:var(--muted);font-size:.76rem;margin-top:14px}
+  .exp{display:block;margin:12px auto 0;color:var(--muted);font-size:.74rem;text-decoration:underline;cursor:pointer;background:none;border:0;font-family:inherit}
+  .exp:hover{color:var(--maroon)}
 
   @media(max-width:559px){
-    .wrap{padding:0 13px 40px}
-    header{padding:30px 14px 18px}
-    .brand-en{font-size:2.1rem;letter-spacing:4px}
-    .band h2{font-size:1.5rem;letter-spacing:3px}
-    .cat-head .ar{font-size:1.2rem}
-    .tabs button{min-width:0;flex:1 1 0;padding:9px 12px;letter-spacing:1px}
-    .item{padding:9px 3px}
-    .item .na{font-size:.94rem}
-    .pp{font-size:.94rem}
-    .item .prices{gap:10px}
+    .wrap{padding:0 12px 40px}
+    header{padding:26px 14px 16px}
+    .brand-en{font-size:2rem;letter-spacing:4px}
+    .band{padding:18px 16px} .band h2{font-size:1.45rem;letter-spacing:3px}
+    .cat-head .c-main{font-size:1.15rem}
+    .cat-head .c-sub{font-size:.75rem}
+    .tabs button{padding:9px 10px;letter-spacing:1px;font-size:.86rem}
+    .item{padding:8px 1px;gap:8px}
+    .item .na{font-size:.92rem}
+    .cells .c,.pp{font-size:.92rem}
+    :root{ --pw-mobile:1 }
   }
 </style>
 </head>
 <body>
 
+<!-- brand logo mark (reused in footer) -->
+<template id="mark">
+  <svg viewBox="0 0 120 128" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M53 22 Q53 9 60 9 Q67 9 67 22"/>
+    <path d="M22 118 V56 Q22 51 26 48 L57 26 Q60 24 63 26 L94 48 Q98 51 98 56 V118"/>
+    <ellipse cx="49" cy="80" rx="10" ry="16"/>
+    <path d="M49 65 Q44.5 80 49 95"/>
+    <ellipse cx="71" cy="80" rx="10" ry="16"/>
+    <path d="M71 65 Q66.5 80 71 95"/>
+  </svg>
+</template>
+
 <header>
-  <div class="logo" aria-hidden="true">
-    <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M22 110 V50 L60 22 L98 50 V110"/>
-      <rect x="51" y="10" width="18" height="18" rx="4"/>
-      <g transform="rotate(-18 60 74)">
-        <ellipse cx="49" cy="74" rx="11" ry="17"/>
-        <path d="M49 59 Q44.5 74 49 89"/>
-        <ellipse cx="71" cy="74" rx="11" ry="17"/>
-        <path d="M71 59 Q66.5 74 71 89"/>
-      </g>
-    </svg>
-  </div>
+  <div class="logo" id="logo" aria-hidden="true"></div>
   <div class="brand-ar">المعتمد</div>
   <div class="brand-en">ALMOATAMD</div>
   <div class="tagline">Every Bean With Love</div>
-  <a class="handle" href="https://instagram.com/almoatamd" target="_blank" rel="noopener">@almoatamd</a>
 </header>
 
 <div class="topbar">
@@ -153,23 +154,25 @@
 </div>
 
 <div class="wrap" id="menu">
-  <div class="status" id="status"><div class="spin"></div>جاري تحميل المنيو…</div>
+  <div class="status" id="status"><div class="spin"></div>Loading menu…</div>
 </div>
 
 <footer>
-  <b>ALMOATAMD · المعتمد</b> — Every Bean With Love<br>
-  جميع الأسعار بالجنيه المصري
+  <div class="foot-logo" id="footLogo" aria-hidden="true"></div>
+  <div class="foot-brand">ALMOATAMD · المعتمد</div>
+  <div class="foot-tag">Every Bean With Love</div>
+  <a class="ig" href="https://instagram.com/almoatamd" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+    @almoatamd
+  </a>
+  <div class="foot-note">All prices in EGP · جميع الأسعار بالجنيه المصري</div>
 </footer>
 
 <script>
 /* ============================================================
    ⚙️  الإعدادات — الربط بجوجل شيت
-   ------------------------------------------------------------
-   المنيو بيقرأ من الشيت المنشور. عدّل في الشيت → يتحدّث المنيو.
-   لو حابب تغيّر الشيت، بدّل SHEET_CSV_URL تحت.
-   (الأعمدة المطلوبة: section, category_ar, category_en,
-    name_ar, name_en, prices, available)
-   صيغة عمود prices:  "M 85 | L 95"  أو  "125g 130 | 250g 260"  أو  "60"
+   الأعمدة: section, category_ar, category_en, name_ar, name_en, prices, available
+   صيغة prices:  "M 85 | L 95"  أو  "125g 130 | 250g 260"  أو  "60"
    ============================================================ */
 const CONFIG = {
   SHEET_CSV_URL: 'https://docs.google.com/spreadsheets/d/1UOmsl-mXTI5Nww4MMfHaHAZy2896VV01vyBo47TDF7E/export?format=csv',
@@ -186,12 +189,10 @@ const DEFAULT_SECTIONS = [
 ];
 
 const DEFAULT_CATS = [
-  // ---- BEANS ----
   { id:'b_turkish',   s:'beans',  ar:'قهوة تركية',                 en:'Turkish Coffee' },
   { id:'b_specialty', s:'beans',  ar:'القهوة المختصة والإسبريسو',  en:'Specialty & Espresso' },
   { id:'b_french',    s:'beans',  ar:'قهوة فرنسية',                en:'French Coffee' },
   { id:'b_arabic',    s:'beans',  ar:'قهوة عربية',                 en:'Arabic Coffee' },
-  // ---- DRINKS ----
   { id:'d_hot',       s:'drinks', ar:'المشروبات الساخنة', en:'Hot Beverages' },
   { id:'d_color',     s:'drinks', ar:'اللاتيه الملوّن',   en:'Color Latte' },
   { id:'d_specialty', s:'drinks', ar:'القهوة المختصة',    en:'Specialty Coffee' },
@@ -212,7 +213,6 @@ const DEFAULT_CATS = [
 
 const DEFAULT_PRODUCTS = [
   // ==================== BEANS ====================
-  // قهوة تركية (125g / 250g)
   {c:'b_turkish', ar:'المعتمد سبيشال سادة',  en:'Almoatamd Special Plain',  pr:'125g 130 | 250g 260'},
   {c:'b_turkish', ar:'المعتمد سبيشال محوّج', en:'Almoatamd Special Spiced', pr:'125g 142.5 | 250g 285'},
   {c:'b_turkish', ar:'المعتمد اورينت سادة',  en:'Almoatamd Orient Plain',   pr:'125g 80 | 250g 160'},
@@ -223,7 +223,6 @@ const DEFAULT_PRODUCTS = [
   {c:'b_turkish', ar:'كيني جامبو محوّج',     en:'Kenyan Jambo Spiced',      pr:'125g 162.5 | 250g 325'},
   {c:'b_turkish', ar:'إثيوبي هرري سادة',     en:'Ethiopian Harrar Plain',   pr:'125g 112.5 | 250g 225'},
   {c:'b_turkish', ar:'إثيوبي هرري محوّج',    en:'Ethiopian Harrar Spiced',  pr:'125g 125 | 250g 250'},
-  // القهوة المختصة والإسبريسو
   {c:'b_specialty', ar:'كولومبي',       en:'Colombian',       pr:'125g 150 | 250g 300'},
   {c:'b_specialty', ar:'يمني موكا',      en:'Yemeni Mocha',    pr:'125g 200 | 250g 400'},
   {c:'b_specialty', ar:'كيني',          en:'Kenyan',          pr:'125g 150 | 250g 300'},
@@ -231,18 +230,15 @@ const DEFAULT_PRODUCTS = [
   {c:'b_specialty', ar:'كافا',          en:'Kava',            pr:'125g 137.5 | 250g 275'},
   {c:'b_specialty', ar:'تاندرو',        en:'Tandro',          pr:'125g 137.5 | 250g 275'},
   {c:'b_specialty', ar:'ساندرو (بلند)', en:'Sandro (Blend)',  pr:'125g 100 | 250g 200'},
-  // قهوة فرنسية
-  {c:'b_french', ar:'قهوة فرنسية بندق مع قطع البندق',        en:'French Coffee — Hazelnut',      pr:'125g 137.5 | 250g 275'},
-  {c:'b_french', ar:'قهوة فرنسية بالفراولة مع قطع الفراولة', en:'French Coffee — Strawberry',    pr:'125g 137.5 | 250g 275'},
+  {c:'b_french', ar:'قهوة فرنسية بندق مع قطع البندق',        en:'French Coffee — Hazelnut',       pr:'125g 137.5 | 250g 275'},
+  {c:'b_french', ar:'قهوة فرنسية بالفراولة مع قطع الفراولة', en:'French Coffee — Strawberry',     pr:'125g 137.5 | 250g 275'},
   {c:'b_french', ar:'قهوة فرنسية بالكاراميل ومكسرات البيكان',en:'French Coffee — Caramel & Pecan',pr:'125g 137.5 | 250g 275'},
-  {c:'b_french', ar:'قهوة فرنسية بالشوكولاتة',              en:'French Coffee — Chocolate',     pr:'125g 137.5 | 250g 275'},
-  {c:'b_french', ar:'قهوة فرنسية بالفانيليا',               en:'French Coffee — Vanilla',       pr:'125g 125 | 250g 250'},
-  {c:'b_french', ar:'قهوة فرنسية كلاسيك',                   en:'French Coffee — Classic',       pr:'125g 125 | 250g 250'},
-  // قهوة عربية
+  {c:'b_french', ar:'قهوة فرنسية بالشوكولاتة',              en:'French Coffee — Chocolate',      pr:'125g 137.5 | 250g 275'},
+  {c:'b_french', ar:'قهوة فرنسية بالفانيليا',               en:'French Coffee — Vanilla',        pr:'125g 125 | 250g 250'},
+  {c:'b_french', ar:'قهوة فرنسية كلاسيك',                   en:'French Coffee — Classic',        pr:'125g 125 | 250g 250'},
   {c:'b_arabic', ar:'ضيافة المعتمد', en:'Almoatamd Hospitality', pr:'125g 175 | 250g 350'},
 
   // ==================== DRINKS ====================
-  // Hot Beverages
   {c:'d_hot', en:'Espresso',            pr:'S 45 | D 50'},
   {c:'d_hot', en:'Macchiato',           pr:'S 55 | D 60'},
   {c:'d_hot', en:'Cortado',             pr:'M 75'},
@@ -263,13 +259,10 @@ const DEFAULT_PRODUCTS = [
   {c:'d_hot', en:'Americano Black',     pr:'L 85'},
   {c:'d_hot', en:'Matcha',              pr:'M 85 | L 115'},
   {c:'d_hot', en:'Chai Latte',          pr:'M 70 | L 90'},
-  // Color Latte
   {c:'d_color', en:'Pink Cinnamon Latte', pr:'M 85 | L 100'},
   {c:'d_color', en:'Blue Chai Latte',     pr:'M 85 | L 100'},
   {c:'d_color', en:'Golden Latte',        pr:'M 85 | L 100'},
-  // Specialty Coffee
   {c:'d_specialty', en:'V60 — Colombian · Kenyan · Ethiopian', pr:'120'},
-  // Iced Coffee (M / L / XL)
   {c:'d_iced', en:'Iced Latte',               pr:'L 90 | XL 110'},
   {c:'d_iced', en:'Iced Spanish Latte',       pr:'L 105 | XL 125'},
   {c:'d_iced', en:'Iced Latte Salted Caramel',pr:'M 85 | L 100'},
@@ -285,14 +278,12 @@ const DEFAULT_PRODUCTS = [
   {c:'d_iced', en:'Iced Latte Pistachio',     pr:'L 120 | XL 140'},
   {c:'d_iced', en:'Iced Spanish Pistachio',   pr:'L 125 | XL 145'},
   {c:'d_iced', en:'Iced Chocolate',           pr:'M 85 | L 100'},
-  // Iced Matcha (M / L)
-  {c:'d_matcha', en:'Matcha Vanilla',          pr:'M 105 | L 125'},
-  {c:'d_matcha', en:'Matcha White Chocolate',  pr:'M 115 | L 135'},
-  {c:'d_matcha', en:'Matcha Pistachio',        pr:'M 120 | L 140'},
-  {c:'d_matcha', en:'Matcha Blueberry',        pr:'M 115 | L 135'},
-  {c:'d_matcha', en:'Matcha Strawberry',       pr:'M 115 | L 135'},
+  {c:'d_matcha', en:'Matcha Vanilla',           pr:'M 105 | L 125'},
+  {c:'d_matcha', en:'Matcha White Chocolate',   pr:'M 115 | L 135'},
+  {c:'d_matcha', en:'Matcha Pistachio',         pr:'M 120 | L 140'},
+  {c:'d_matcha', en:'Matcha Blueberry',         pr:'M 115 | L 135'},
+  {c:'d_matcha', en:'Matcha Strawberry',        pr:'M 115 | L 135'},
   {c:'d_matcha', en:'Matcha Strawberry Coconut',pr:'M 115 | L 135'},
-  // Coffee Frappe (M / L)
   {c:'d_frappe', en:'Coffee Frappe',       pr:'M 95 | L 115'},
   {c:'d_frappe', en:'Caramel Frappe',      pr:'M 105 | L 125'},
   {c:'d_frappe', en:'Dark Mocha Frappe',   pr:'M 105 | L 125'},
@@ -300,7 +291,6 @@ const DEFAULT_PRODUCTS = [
   {c:'d_frappe', en:'Popcorn Frappe',      pr:'M 105 | L 125'},
   {c:'d_frappe', en:'Cinnamon Roll Frappe',pr:'M 105 | L 125'},
   {c:'d_frappe', en:'Pistachio Frappe',    pr:'M 125 | L 150'},
-  // Mojito (L / XL)
   {c:'d_mojito', en:'Classic Mojito',        pr:'L 80 | XL 100'},
   {c:'d_mojito', en:'RedBull Classic Mojito',pr:'L 110 | XL 130'},
   {c:'d_mojito', en:'Blue Ice Mojito',       pr:'L 100 | XL 125'},
@@ -311,7 +301,6 @@ const DEFAULT_PRODUCTS = [
   {c:'d_mojito', en:'Mango Mojito',          pr:'L 100 | XL 125'},
   {c:'d_mojito', en:'Peach Mojito',          pr:'L 100 | XL 125'},
   {c:'d_mojito', en:'Mango & Peach Mojito',  pr:'L 100 | XL 125'},
-  // Smoothie (M / L)
   {c:'d_smoothie', en:'Strawberry Smoothie',          pr:'M 95 | L 115'},
   {c:'d_smoothie', en:'Blueberry Smoothie',           pr:'M 95 | L 115'},
   {c:'d_smoothie', en:'Raspberry Smoothie',           pr:'M 95 | L 115'},
@@ -323,7 +312,6 @@ const DEFAULT_PRODUCTS = [
   {c:'d_smoothie', en:'Peach Smoothie',               pr:'M 95 | L 115'},
   {c:'d_smoothie', en:'Tangerine Smoothie',           pr:'M 95 | L 115'},
   {c:'d_smoothie', en:'Pineapple Smoothie',           pr:'M 95 | L 115'},
-  // Lunar (L / XL)
   {c:'d_lunar', en:'Mango Coconut Refresher',        pr:'L 120 | XL 140'},
   {c:'d_lunar', en:'Mango Refresher',                pr:'L 120 | XL 140'},
   {c:'d_lunar', en:'Passion Fruit Refresher',        pr:'L 120 | XL 140'},
@@ -334,7 +322,6 @@ const DEFAULT_PRODUCTS = [
   {c:'d_lunar', en:'Berries Refresher',              pr:'L 120 | XL 140'},
   {c:'d_lunar', en:'Passion Fruit Lunar Boba',       pr:'L 120 | XL 140'},
   {c:'d_lunar', en:'Raspberry Lunar Boba',           pr:'L 120 | XL 140'},
-  // Milk Shakes (M / L)
   {c:'d_shake', en:'Vanilla',      pr:'M 100 | L 120'},
   {c:'d_shake', en:'Chocolate',    pr:'M 100 | L 120'},
   {c:'d_shake', en:'Caramel',      pr:'M 100 | L 120'},
@@ -352,7 +339,6 @@ const DEFAULT_PRODUCTS = [
   {c:'d_shake', en:'Mango',        pr:'M 105 | L 125'},
   {c:'d_shake', en:'Pineapple',    pr:'M 105 | L 125'},
   {c:'d_shake', en:'Peach',        pr:'M 105 | L 125'},
-  // Hot Chocolate (M / L)
   {c:'d_hotchoc', en:'Hot Chocolate Classic',         pr:'M 75 | L 90'},
   {c:'d_hotchoc', en:'Hot Chocolate Orange',          pr:'M 85 | L 100'},
   {c:'d_hotchoc', en:'Hot Chocolate Rose',            pr:'M 85 | L 100'},
@@ -360,27 +346,22 @@ const DEFAULT_PRODUCTS = [
   {c:'d_hotchoc', en:'Hot Chocolate Lotus',           pr:'M 85 | L 100'},
   {c:'d_hotchoc', en:'Hot Chocolate Cookies',         pr:'M 85 | L 100'},
   {c:'d_hotchoc', en:'Hot Chocolate Salted Caramel',  pr:'M 85 | L 100'},
-  // Turkish Coffee (S / M)
   {c:'d_turkish', en:'Turkish Coffee', pr:'S 35 | M 50'},
-  // French Coffee (M)
   {c:'d_french', en:'Classic',    pr:'60'},
   {c:'d_french', en:'Vanilla',    pr:'60'},
   {c:'d_french', en:'Strawberry', pr:'70'},
   {c:'d_french', en:'Hazelnut',   pr:'70'},
   {c:'d_french', en:'Caramel',    pr:'70'},
   {c:'d_french', en:'Chocolate',  pr:'70'},
-  // Tea
   {c:'d_tea', en:'Karak Tea Zaafaran', pr:'60'},
   {c:'d_tea', en:'Tea Black / Green',  pr:'35'},
   {c:'d_tea', en:'English Tea Flavor', pr:'45'},
-  // RedBull
   {c:'d_redbull', en:'RedBull Classic',                pr:'90'},
   {c:'d_redbull', en:'RedBull Sugar Free',             pr:'90'},
   {c:'d_redbull', en:'RedBull Vanilla & Berries Winter',pr:'90'},
   {c:'d_redbull', en:'RedBull Coconut & Berry White',  pr:'90'},
   {c:'d_redbull', en:'RedBull Blueberry Purple',       pr:'90'},
   {c:'d_redbull', en:'RedBull Acai Berry Blue',        pr:'90'},
-  // Extra
   {c:'d_extra', en:'Mineral Water 600ml',   pr:'15'},
   {c:'d_extra', en:'Schweppes Soda 250ml',  pr:'25'},
   {c:'d_extra', en:'Ice & Cup',             pr:'25'},
@@ -396,32 +377,22 @@ const DEFAULT_DATA = { SECTIONS:DEFAULT_SECTIONS, CATS:DEFAULT_CATS, PRODUCTS:DE
    قراءة البيانات من جوجل شيت
    ============================================================ */
 function buildUrl(){
-  const bust = '_cb=' + Date.now();
-  if(CONFIG.SHEET_CSV_URL) return CONFIG.SHEET_CSV_URL + (CONFIG.SHEET_CSV_URL.includes('?')?'&':'?') + bust;
-  if(CONFIG.SHEET_ID) return 'https://docs.google.com/spreadsheets/d/'+CONFIG.SHEET_ID+
-    '/gviz/tq?tqx=out:csv&sheet='+encodeURIComponent(CONFIG.SHEET_NAME||'')+'&'+bust;
+  const bust='_cb='+Date.now();
+  if(CONFIG.SHEET_CSV_URL) return CONFIG.SHEET_CSV_URL+(CONFIG.SHEET_CSV_URL.includes('?')?'&':'?')+bust;
+  if(CONFIG.SHEET_ID) return 'https://docs.google.com/spreadsheets/d/'+CONFIG.SHEET_ID+'/gviz/tq?tqx=out:csv&sheet='+encodeURIComponent(CONFIG.SHEET_NAME||'')+'&'+bust;
   return '';
 }
-
 function parseCSV(text){
   const rows=[]; let row=[]; let field=''; let inQ=false;
   text=text.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
   for(let i=0;i<text.length;i++){
     const ch=text[i];
-    if(inQ){
-      if(ch==='"'){ if(text[i+1]==='"'){ field+='"'; i++; } else inQ=false; }
-      else field+=ch;
-    } else {
-      if(ch==='"') inQ=true;
-      else if(ch===','){ row.push(field); field=''; }
-      else if(ch==='\n'){ row.push(field); rows.push(row); row=[]; field=''; }
-      else field+=ch;
-    }
+    if(inQ){ if(ch==='"'){ if(text[i+1]==='"'){ field+='"'; i++; } else inQ=false; } else field+=ch; }
+    else { if(ch==='"') inQ=true; else if(ch===','){ row.push(field); field=''; } else if(ch==='\n'){ row.push(field); rows.push(row); row=[]; field=''; } else field+=ch; }
   }
   if(field.length||row.length){ row.push(field); rows.push(row); }
   return rows.filter(r=>r.some(c=>(c||'').trim()!==''));
 }
-
 function normHeader(h){ return (h||'').trim().toLowerCase().replace(/[\s_\-]+/g,''); }
 const FIELD_OF = {
   'section':'section','sec':'section','القسم':'section','القسمالرئيسي':'section',
@@ -432,69 +403,48 @@ const FIELD_OF = {
   'prices':'prices','price':'prices','p':'prices','السعر':'prices','الاسعار':'prices','الأسعار':'prices',
   'available':'available','avail':'available','متاح':'available','الحالة':'available','status':'available',
 };
-
-function isHidden(v){
-  if(!v) return false;
-  const n=v.trim().toLowerCase().replace(/\s+/g,'');
-  return ['no','false','0','hide','hidden','off','لا','مخفي','مخفى','غيرمتاح','stop'].includes(n);
-}
-
+function isHidden(v){ if(!v) return false; const n=v.trim().toLowerCase().replace(/\s+/g,''); return ['no','false','0','hide','hidden','off','لا','مخفي','مخفى','غيرمتاح','stop'].includes(n); }
 function normSection(v){
   const raw=(v||'').trim(); const n=raw.toLowerCase();
-  if(n==='beans'||raw.includes('بن')||raw.includes('حبوب')||raw.includes('قهوة محمصة')) return {id:'beans', ar:'حبوب البُن', en:'BEANS'};
-  if(n==='drinks'||n==='drink'||raw.includes('مشروب')||raw.includes('مشروبات')) return {id:'drinks', ar:'المشروبات', en:'DRINKS'};
+  if(n==='beans'||raw.includes('بن')||raw.includes('حبوب')) return {id:'beans', ar:'حبوب البُن', en:'BEANS'};
+  if(n==='drinks'||n==='drink'||raw.includes('مشروب')) return {id:'drinks', ar:'المشروبات', en:'DRINKS'};
   if(!raw) return {id:'drinks', ar:'المشروبات', en:'DRINKS'};
   return {id:'sec_'+n.replace(/\s+/g,'_'), ar:raw, en:raw.toUpperCase()};
 }
-
 function rowsToData(rows){
   if(!rows||rows.length<2) return null;
-  const header=rows[0].map(normHeader);
-  const idx={};
+  const header=rows[0].map(normHeader); const idx={};
   header.forEach((h,i)=>{ const f=FIELD_OF[h]; if(f&&idx[f]===undefined) idx[f]=i; });
   if(idx.name_ar===undefined && idx.name_en===undefined) return null;
-
   const sectionsMap=new Map(); const cats=[]; const catKey=new Map(); const products=[];
   for(let r=1;r<rows.length;r++){
-    const row=rows[r];
-    const get=f=>(idx[f]!==undefined?(row[idx[f]]||''):'').trim();
+    const row=rows[r]; const get=f=>(idx[f]!==undefined?(row[idx[f]]||''):'').trim();
     const nameAr=get('name_ar'), nameEn=get('name_en');
     if(!nameAr && !nameEn) continue;
     if(isHidden(get('available'))) continue;
-
     const sec=normSection(get('section')||'drinks');
     if(!sectionsMap.has(sec.id)) sectionsMap.set(sec.id, sec);
-
-    const catAr=get('category_ar')||'أخرى'; const catEn=get('category_en');
-    const key=sec.id+'||'+catAr;
+    const catAr=get('category_ar')||'Other'; const catEn=get('category_en');
+    const key=sec.id+'||'+catAr+'||'+catEn;
     let catId=catKey.get(key);
     if(!catId){ catId='c'+cats.length; catKey.set(key,catId); cats.push({id:catId, s:sec.id, ar:catAr, en:catEn}); }
-
     products.push({c:catId, ar:nameAr, en:nameEn, pr:get('prices')});
   }
   if(!products.length) return null;
   return {SECTIONS:[...sectionsMap.values()], CATS:cats, PRODUCTS:products};
 }
-
 async function loadData(){
-  const url=buildUrl();
-  if(!url) return DEFAULT_DATA;
+  const url=buildUrl(); if(!url) return DEFAULT_DATA;
   try{
-    const res=await fetch(url,{cache:'no-store'});
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const data=rowsToData(parseCSV(await res.text()));
-    return data||DEFAULT_DATA;
-  }catch(e){
-    console.warn('تعذّر تحميل جوجل شيت — عرض البيانات الافتراضية.', e);
-    return DEFAULT_DATA;
-  }
+    const res=await fetch(url,{cache:'no-store'}); if(!res.ok) throw new Error('HTTP '+res.status);
+    const data=rowsToData(parseCSV(await res.text())); return data||DEFAULT_DATA;
+  }catch(e){ console.warn('تعذّر تحميل جوجل شيت — عرض البيانات الافتراضية.', e); return DEFAULT_DATA; }
 }
 
 /* ============================================================
-   عرض المنيو
+   العرض
    ============================================================ */
 function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
 function parsePrices(str){
   if(str==null) return [];
   return String(str).split('|').map(s=>s.trim()).filter(Boolean).map(seg=>{
@@ -506,9 +456,12 @@ function parsePrices(str){
 
 function initMenu(data){
   const SECTIONS=data.SECTIONS, CATS=data.CATS, PRODUCTS=data.PRODUCTS;
+  const mark=document.getElementById('mark').innerHTML;
+  document.getElementById('logo').innerHTML=mark;
+  document.getElementById('footLogo').innerHTML=mark;
+
   const nav=document.getElementById('nav');
-  const menu=document.getElementById('menu');
-  menu.innerHTML='';
+  const menu=document.getElementById('menu'); menu.innerHTML='';
   const navLinks={}; const sections=[];
 
   function renderCategory(cat){
@@ -516,28 +469,65 @@ function initMenu(data){
     if(!items.length) return;
 
     const a=document.createElement('a');
-    a.href='#cat-'+cat.id; a.textContent=cat.ar; a.dataset.cat=cat.id;
+    a.href='#cat-'+cat.id; a.textContent=cat.en||cat.ar; a.dataset.cat=cat.id;
     navLinks[cat.id]=a; nav.appendChild(a);
 
-    const sec=document.createElement('section');
-    sec.className='cat'; sec.id='cat-'+cat.id;
-    const head=document.createElement('div');
-    head.className='cat-head';
-    head.innerHTML='<span class="ar">'+esc(cat.ar)+'</span>'+(cat.en?'<span class="en">'+esc(cat.en)+'</span>':'')+'<span class="line"></span>';
+    const sec=document.createElement('section'); sec.className='cat'; sec.id='cat-'+cat.id;
+
+    // parse prices; decide header (dominant labeled size-sequence)
+    const parsed=items.map(p=>({p, pr:parsePrices(p.pr)}));
+    const seqCount={};
+    parsed.forEach(x=>{ const ls=x.pr.filter(pp=>pp.label).map(pp=>pp.label); if(ls.length){ const k=ls.join('|'); seqCount[k]=(seqCount[k]||0)+1; } });
+    let headerLabels=[]; let best=-1;
+    Object.keys(seqCount).forEach(k=>{ const arr=k.split('|'); const c=seqCount[k]; if(c>best||(c===best&&arr.length>headerLabels.length)){ best=c; headerLabels=arr; } });
+
+    // column width
+    let wide=headerLabels.some(l=>l.length>2);
+    parsed.forEach(x=>x.pr.forEach(pp=>{ if((pp.value||'').length>3||(pp.label||'').length>2) wide=true; }));
+    sec.style.setProperty('--pw', (wide?68:50)+'px');
+
+    // head
+    const head=document.createElement('div'); head.className='cat-head';
+    head.innerHTML='<span class="c-main">'+esc(cat.en||cat.ar)+'</span>'+(cat.ar&&cat.en?'<span class="c-sub">'+esc(cat.ar)+'</span>':'')+'<span class="line"></span>';
     sec.appendChild(head);
 
-    const list=document.createElement('div');
-    list.className='items';
-    items.forEach(p=>{
-      const primary=p.ar||p.en||''; const secondary=p.ar?(p.en||''):'';
-      const priceHtml=parsePrices(p.pr).map(x=>x.label
-        ? '<span class="pp"><b>'+esc(x.label)+'</b>'+esc(x.value)+'</span>'
-        : '<span class="pp">'+esc(x.value)+'</span>').join('');
-      const row=document.createElement('div');
-      row.className='item';
-      row.innerHTML='<div class="nm"><div class="na">'+esc(primary)+'</div>'+
-        (secondary?'<div class="ne">'+esc(secondary)+'</div>':'')+'</div>'+
-        '<div class="prices">'+priceHtml+'</div>';
+    // size header row
+    if(headerLabels.length){
+      const key=document.createElement('div'); key.className='price-key';
+      key.innerHTML=headerLabels.map(l=>'<span>'+esc(l)+'</span>').join('');
+      sec.appendChild(key);
+    }
+
+    const list=document.createElement('div'); list.className='items';
+    parsed.forEach(x=>{
+      const p=x.p, pr=x.pr;
+      const primary=p.en||p.ar||''; const secondary=p.en?(p.ar||''):'';
+      const itemLabels=pr.filter(pp=>pp.label).map(pp=>pp.label);
+      const hasLabels=itemLabels.length>0;
+      const fits=hasLabels && headerLabels.length && itemLabels.every(l=>headerLabels.includes(l));
+
+      let priceHtml;
+      if(headerLabels.length && (fits || !hasLabels)){
+        // aligned cells under the header columns
+        const map={}; pr.forEach(pp=>{ if(pp.label) map[pp.label]=pp.value; });
+        if(!hasLabels && pr.length===1){
+          // single unlabeled price → put in last column
+          priceHtml='<div class="cells">'+headerLabels.map((l,i)=>i===headerLabels.length-1
+            ?'<span class="c">'+esc(pr[0].value)+'</span>':'<span class="c dash">–</span>').join('')+'</div>';
+        } else {
+          priceHtml='<div class="cells">'+headerLabels.map(l=> map[l]!==undefined
+            ?'<span class="c">'+esc(map[l])+'</span>':'<span class="c dash">–</span>').join('')+'</div>';
+        }
+      } else if(hasLabels){
+        // irregular labels (e.g. S/D inside an M/L category) → inline chips
+        priceHtml='<div class="inline">'+pr.map(pp=>pp.label?'<span class="pp"><b>'+esc(pp.label)+'</b>'+esc(pp.value)+'</span>':'<span class="pp">'+esc(pp.value)+'</span>').join('')+'</div>';
+      } else {
+        // no header at all → single value right-aligned
+        priceHtml='<div class="cells"><span class="c">'+esc(pr.length?pr[0].value:'')+'</span></div>';
+      }
+
+      const row=document.createElement('div'); row.className='item';
+      row.innerHTML='<div class="nm"><div class="na">'+esc(primary)+'</div>'+(secondary?'<div class="ne">'+esc(secondary)+'</div>':'')+'</div>'+priceHtml;
       list.appendChild(row);
     });
     sec.appendChild(list);
@@ -547,73 +537,49 @@ function initMenu(data){
 
   SECTIONS.forEach(section=>{
     const secCats=CATS.filter(c=>c.s===section.id);
-    const banner=document.createElement('div');
-    banner.className='band'; banner.id='sec-'+section.id;
+    const banner=document.createElement('div'); banner.className='band'; banner.id='sec-'+section.id;
     banner.innerHTML='<h2>'+esc(section.en||section.ar)+'</h2><div class="ar">'+esc(section.ar)+'</div>';
     menu.appendChild(banner);
-
     const hasItems=secCats.some(c=>PRODUCTS.some(p=>p.c===c.id));
-    if(!hasItems){
-      const soon=document.createElement('div');
-      soon.className='soon'; soon.textContent='☕ '+(section.ar)+' — قريبًا';
-      menu.appendChild(soon); return;
-    }
+    if(!hasItems){ const soon=document.createElement('div'); soon.className='soon'; soon.textContent='☕ '+(section.en||section.ar)+' — Coming soon'; menu.appendChild(soon); return; }
     secCats.forEach(renderCategory);
   });
 
-  /* تظليل التصنيف أثناء التمرير */
   let activeId=null;
-  function setActive(id){
-    if(id===activeId) return; activeId=id;
-    for(const k in navLinks) navLinks[k].classList.toggle('active', k===id);
-    const a=navLinks[id]; if(a) a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
-  }
-  const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setActive(e.target.id.replace('cat-',''));});},
-    {rootMargin:'-42% 0px -52% 0px',threshold:0});
+  function setActive(id){ if(id===activeId) return; activeId=id; for(const k in navLinks) navLinks[k].classList.toggle('active',k===id); const a=navLinks[id]; if(a) a.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'}); }
+  const spy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setActive(e.target.id.replace('cat-',''));});},{rootMargin:'-42% 0px -52% 0px',threshold:0});
   sections.forEach(s=>spy.observe(s));
   if(sections[0]) setActive(sections[0].id.replace('cat-',''));
   nav.addEventListener('click',e=>{const a=e.target.closest('a'); if(a&&a.dataset.cat) setActive(a.dataset.cat);});
 
-  /* تابات BEANS / DRINKS */
-  const tabsEl=document.getElementById('tabs'); tabsEl.innerHTML='';
-  const tabBtns={};
+  const tabsEl=document.getElementById('tabs'); tabsEl.innerHTML=''; const tabBtns={};
   SECTIONS.forEach(section=>{
     if(!CATS.some(c=>c.s===section.id && PRODUCTS.some(p=>p.c===c.id))) return;
-    const b=document.createElement('button');
-    b.textContent=section.en||section.ar; b.dataset.sec=section.id;
+    const b=document.createElement('button'); b.textContent=section.en||section.ar; b.dataset.sec=section.id;
     b.addEventListener('click',()=>{const banner=document.getElementById('sec-'+section.id); if(banner) banner.scrollIntoView({behavior:'smooth',block:'start'}); setTab(section.id);});
     tabBtns[section.id]=b; tabsEl.appendChild(b);
   });
-  function setTab(id){ for(const k in tabBtns) tabBtns[k].classList.toggle('active', k===id); }
+  function setTab(id){ for(const k in tabBtns) tabBtns[k].classList.toggle('active',k===id); }
   const firstTab=Object.keys(tabBtns)[0]; if(firstTab) setTab(firstTab);
-  const secSpy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setTab(e.target.id.replace('sec-',''));});},
-    {rootMargin:'0px 0px -76% 0px',threshold:0});
+  const secSpy=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting) setTab(e.target.id.replace('sec-',''));});},{rootMargin:'0px 0px -76% 0px',threshold:0});
   document.querySelectorAll('.band').forEach(el=>secSpy.observe(el));
 
   if(location.hash==='#admin') addExportLink(data);
 }
 
-/* تصدير الشيت */
 function addExportLink(data){
   const footer=document.querySelector('footer');
-  const btn=document.createElement('button');
-  btn.className='exp'; btn.textContent='📄 تنزيل ملف الشيت (CSV)';
-  btn.onclick=()=>downloadCSV(data);
-  footer.appendChild(document.createElement('br')); footer.appendChild(btn);
+  const btn=document.createElement('button'); btn.className='exp'; btn.textContent='📄 Download Sheet CSV';
+  btn.onclick=()=>downloadCSV(data); footer.appendChild(btn);
 }
 function csvCell(v){ const s=String(v==null?'':v); return /[",\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s; }
 function downloadCSV(data){
-  const catMap={}; data.CATS.forEach(c=>catMap[c.id]=c);
-  const secMap={}; data.SECTIONS.forEach(s=>secMap[s.id]=s);
+  const catMap={}; data.CATS.forEach(c=>catMap[c.id]=c); const secMap={}; data.SECTIONS.forEach(s=>secMap[s.id]=s);
   const rows=[['section','category_ar','category_en','name_ar','name_en','prices','available']];
-  data.PRODUCTS.forEach(p=>{
-    const cat=catMap[p.c]||{}; const sec=secMap[cat.s]||{};
-    rows.push([ sec.en||cat.s||'', cat.ar||'', cat.en||'', p.ar||'', p.en||'', p.pr||'', 'yes' ]);
-  });
+  data.PRODUCTS.forEach(p=>{ const cat=catMap[p.c]||{}; const sec=secMap[cat.s]||{}; rows.push([sec.en||cat.s||'',cat.ar||'',cat.en||'',p.ar||'',p.en||'',p.pr||'','yes']); });
   const csv='﻿'+rows.map(r=>r.map(csvCell).join(',')).join('\n');
-  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
-  a.download='almoatamd-menu.csv'; a.click(); URL.revokeObjectURL(a.href);
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}); const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download='almoatamd-menu.csv'; a.click(); URL.revokeObjectURL(a.href);
 }
 
 loadData().then(initMenu);
